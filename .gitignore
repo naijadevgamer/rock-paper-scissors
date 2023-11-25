@@ -8,6 +8,7 @@
 /README-template.md
 /README.md
 /style-guide.md
+/node_modules
 
 # Avoid accidental XD or Figma upload if you convert the design file
 #######################################################
