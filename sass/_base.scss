@@ -1,12 +1,33 @@
 // COLOR VARIABLES
-$color-text-h: hsl(233, 26%, 24%);
-$color-primary-2: hsl(136, 65%, 51%);
-$color-primary-3: hsl(192, 70%, 51%);
+$scissors-gradient: linear-gradient(
+  to right,
+  hsl(39, 89%, 49%),
+  hsl(40, 84%, 53%)
+);
+$paper-gradient: linear-gradient(
+  to right,
+  hsl(230, 89%, 62%),
+  hsl(230, 89%, 65%)
+);
+$rock-gradient: linear-gradient(
+  to right,
+  hsl(349, 71%, 52%),
+  hsl(349, 70%, 56%)
+);
 
-$color-text: hsl(233, 8%, 62%);
-$color-grey-blue-light: hsl(220, 16%, 96%);
-$color-very-light-gray: hsl(0, 0%, 98%);
+$lizard-Gradient: linear-gradient(
+  to right,
+  hsl(261, 73%, 60%),
+  hsl(261, 72%, 63%)
+);
+$cyan: linear-gradient(to right, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+
+$dark-text: hsl(229, 25%, 31%);
+$score-text: hsl(229, 64%, 46%);
+$header-outline: hsl(217, 16%, 45%);
 $color-white: hsl(0, 0%, 100%);
+
+$bg-gradient: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
 
 $shadow-dark: 0rem 2rem 6rem rgba(0, 0, 0, 0.3);
 $shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.1);
@@ -18,6 +39,7 @@ $bp-tab-port: 56.25em; //900px
 $bp-phone: 40.625em; //650px
 $bp-small-phone: 18.75em; //300px
 
+// BASE
 *,
 *::after,
 *::before {
@@ -41,9 +63,10 @@ html {
 }
 
 body {
-  font-family: "Public Sans", sans-serif;
-  color: $color-text;
-  line-height: 1.7;
+  background-image: $bg-gradient;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  min-height: 100vh;
+  color: $color-white;
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
   // padding: 3rem;
