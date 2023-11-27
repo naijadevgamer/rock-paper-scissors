@@ -1,0 +1,21 @@
+.part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  // &--choose{
+  // }
+}
+
+.bg-shape {
+  &__img {
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  &__img {
+  }
+}

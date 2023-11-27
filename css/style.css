@@ -79,4 +79,17 @@ body {
   font-weight: 700;
 }
 
+.part {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 /*# sourceMappingURL=style.css.map */
