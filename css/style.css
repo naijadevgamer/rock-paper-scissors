@@ -85,12 +85,12 @@ body {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 8rem;
+  margin-top: 10rem;
 }
 
 .bg-shape {
-  height: 17rem;
-  width: 20rem;
+  height: 20rem;
+  width: 23rem;
 }
 .bg-shape__img {
   height: 100%;
@@ -100,8 +100,8 @@ body {
 .icon {
   position: absolute;
   border-radius: 50%;
-  width: 15rem;
-  height: 15rem;
+  width: 18rem;
+  height: 17rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,15 +110,15 @@ body {
 .icon::before {
   content: "";
   border-radius: 50%;
-  height: 80%;
-  width: 80%;
+  height: 75%;
+  width: 75%;
   background-color: hsl(0, 0%, 100%);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -47%);
   z-index: 2;
-  box-shadow: 0 -5px 0 #e6e6e6;
+  box-shadow: 0 -6px 0 #e6e6e6;
 }
 .icon:hover .icon__img {
   height: 55%;
@@ -126,7 +126,7 @@ body {
 .icon__img {
   position: relative;
   z-index: 3;
-  height: 50%;
+  height: 45%;
   transition: height 0.3s ease;
 }
 .icon--scissors {
@@ -134,7 +134,7 @@ body {
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
-  box-shadow: 0 5px 0 #a46e0a;
+  box-shadow: 0 7px 0 #a46e0a;
 }
 .icon--scissors:active {
   box-shadow: 0 0 0 #a46e0a;
@@ -144,7 +144,7 @@ body {
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
-  box-shadow: 0 5px 0 #0d31e3;
+  box-shadow: 0 7px 0 #0d31e3;
 }
 .icon--paper:active {
   box-shadow: 0 0 0 #0d31e3;
@@ -154,10 +154,25 @@ body {
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  box-shadow: 0 5px 0 #a11b34;
+  box-shadow: 0 7px 0 #a11b34;
 }
 .icon--rock:active {
   box-shadow: 0 0 0 #a11b34;
+}
+
+.btn {
+  background-color: transparent;
+  color: hsl(0, 0%, 100%);
+  width: 10rem;
+  padding: 1rem;
+  display: block;
+  border: solid 2px hsl(0, 0%, 100%);
+  border-radius: 7px;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
 }
 
 /*# sourceMappingURL=style.css.map */

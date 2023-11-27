@@ -1,0 +1,14 @@
+.btn {
+  background-color: transparent;
+  color: $color-white;
+  width: 10rem;
+  padding: 1rem;
+  display: block;
+  border: solid 2px $color-white;
+  border-radius: 7px;
+  font-weight: 600;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}

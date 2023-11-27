@@ -1,5 +1,5 @@
 @mixin object($object) {
-  box-shadow: 0 5px 0 darken($object, 15%);
+  box-shadow: 0 7px 0 darken($object, 15%);
   &:active {
     box-shadow: 0 0 0 darken($object, 15%);
   }
@@ -11,14 +11,14 @@
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 8rem;
+  margin-top: 10rem;
   // &--choose{
   // }
 }
 
 .bg-shape {
-  height: 17rem;
-  width: 20rem;
+  height: 20rem;
+  width: 23rem;
 
   &__img {
     height: 100%;
@@ -29,8 +29,8 @@
 .icon {
   position: absolute;
   border-radius: 50%;
-  width: 15rem;
-  height: 15rem;
+  width: 18rem;
+  height: 17rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,15 +38,15 @@
   &::before {
     content: "";
     border-radius: 50%;
-    height: 80%;
-    width: 80%;
+    height: 75%;
+    width: 75%;
     background-color: $color-white;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -47%);
     z-index: 2;
-    box-shadow: 0 -5px 0 darken($color-white, 10%);
+    box-shadow: 0 -6px 0 darken($color-white, 10%);
   }
   &:hover &__img {
     height: 55%;
@@ -54,7 +54,7 @@
   &__img {
     position: relative;
     z-index: 3;
-    height: 50%;
+    height: 45%;
     transition: height 0.3s ease;
   }
 
