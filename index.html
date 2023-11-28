@@ -29,9 +29,9 @@
     </header>
     <main class="main">
       <!-- Classic -- Rock paper scissors -->
-      <div class="phase phase--classic">
-        <!-- Player's choice -->
-        <div class="phase__player">
+      <!-- <div class="phase phase--classic">
+        Player's choice
+        <div class="phase__play">
           <div class="phase__bg phase__bg--classic">
             <img
               src="images/bg-triangle.svg"
@@ -61,21 +61,29 @@
             />
           </div>
         </div>
+      </div> -->
 
-        <!-- House's choice and comparism -->
-        <!-- <div class="phase__house">
-          <div class="icon icon--rock">
+      <!-- House's choice and comparism -->
+      <div class="phase__comparism">
+        <div class="phase__pick">
+          <p class="phase__pick-text">you picked</p>
+          <div class="icon icon--rock icon--large">
             <img
               src="images/icon-rock.svg"
               alt="rock"
               class="icon__img icon__img--rock"
             />
           </div>
-          <div class="status">
-            <p class="status__text">You win</p>
-            <button class="btn btn--again">Play again</button>
-          </div>
-          <div class="icon icon--paper">
+        </div>
+
+        <div class="phase__status">
+          <p class="phase__status-text">You win</p>
+          <button class="btn btn--again">Play again</button>
+        </div>
+
+        <div class="phase__house-pick">
+          <p class="phase__pick-text">The house picked</p>
+          <div class="icon icon--paper icon--large icon--winner">
             <img
               src="images/icon-paper.svg"
               alt="paper"
@@ -83,7 +91,7 @@
             />
           </div>
         </div>
-      </div> -->
+      </div>
 
       <!-- Extended -- Rock paper scissors lizard spock -->
       <!-- <div class="phase phase--extended">

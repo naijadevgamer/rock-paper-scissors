@@ -1,14 +1,38 @@
 .btn {
-  background-color: transparent;
-  color: $color-white;
-  width: 10rem;
-  padding: 1rem;
-  display: block;
-  border: solid 1.5px $color-white;
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 600;
   text-transform: uppercase;
-  position: absolute;
-  bottom: 5%;
-  right: 5%;
+  transition: all 0.3s ease;
+  font-size: 1.6rem;
+  font-family: inherit;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  padding: 1rem;
+
+  &--rules {
+    background-color: transparent;
+    color: $color-white;
+    width: 13rem;
+    display: block;
+    border: solid 1.5px $color-white;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    box-shadow: $shadow-light;
+    &:hover {
+      background-color: $color-white;
+      color: $dark-text;
+      // border: solid 2px $rock-h;
+    }
+  }
+  &--again {
+    background-color: $color-white;
+    color: $dark-text;
+    width: 20rem;
+    border: none;
+
+    &:hover {
+      color: $rock-h;
+    }
+  }
 }

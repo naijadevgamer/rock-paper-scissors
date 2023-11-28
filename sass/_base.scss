@@ -1,36 +1,35 @@
 // COLOR VARIABLES
-$scissors: hsl(40, 84%, 53%);
-$scissors-h: hsl(39, 89%, 43%);
-$paper: hsl(230, 89%, 65%);
+$scissors-h: hsl(40, 84%, 43%);
 $paper-h: hsl(230, 89%, 55%);
-$rock: hsl(349, 70%, 56%);
-$rock-h: hsl(349, 71%, 46%);
-$lizard: hsl(261, 72%, 63%);
-$lizard-h: hsl(261, 73%, 60%);
-$spock: hsl(189, 58%, 57%);
-$spock-h: hsl(189, 59%, 53%);
-// $scissors-gradient: linear-gradient(
-//   to right,
-//   hsl(39, 89%, 49%),
-//   hsl(40, 84%, 53%)
-// );
-// $paper-gradient: linear-gradient(
-//   to right,
-//   hsl(230, 89%, 62%),
-//   hsl(230, 89%, 65%)
-// );
-// $rock-gradient: linear-gradient(
-//   to right,
-//   hsl(349, 71%, 52%),
-//   hsl(349, 70%, 56%)
-// );
+$rock-h: hsl(349, 70%, 46%);
+$lizard-h: hsl(261, 72%, 53%);
+$spock-h: hsl(189, 58%, 47%);
+$scissors-gradient: linear-gradient(
+  to right,
+  hsl(39, 89%, 49%),
+  hsl(40, 84%, 53%)
+);
+$paper-gradient: linear-gradient(
+  to right,
+  hsl(230, 89%, 62%),
+  hsl(230, 89%, 65%)
+);
+$rock-gradient: linear-gradient(
+  to right,
+  hsl(349, 71%, 52%),
+  hsl(349, 70%, 56%)
+);
 
-// $lizard-Gradient: linear-gradient(
-//   to right,
-//   hsl(261, 73%, 60%),
-//   hsl(261, 72%, 63%)
-// );
-// $cyan: linear-gradient(to right, hsl(189, 59%, 53%), hsl(189, 58%, 57%));
+$lizard-gradient: linear-gradient(
+  to right,
+  hsl(261, 73%, 60%),
+  hsl(261, 72%, 63%)
+);
+$spock-gradient: linear-gradient(
+  to right,
+  hsl(189, 59%, 53%),
+  hsl(189, 58%, 57%)
+);
 
 $dark-text: hsl(229, 25%, 31%);
 $score-text: hsl(229, 64%, 46%);
@@ -77,12 +76,14 @@ body {
   font-family: "Barlow Semi Condensed", sans-serif;
   min-height: 100vh;
   color: $color-white;
+  text-transform: uppercase;
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
-  // padding: 3rem;
+  padding: 3rem;
+  font-weight: 600;
 }
 ::selection {
-  // background-color: $color-primary;
+  background-color: $dark-text;
   color: $color-white;
 }
 

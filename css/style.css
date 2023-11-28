@@ -31,9 +31,13 @@ body {
   font-family: "Barlow Semi Condensed", sans-serif;
   min-height: 100vh;
   color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
+  padding: 3rem;
+  font-weight: 600;
 }
 
 ::selection {
+  background-color: hsl(229, 25%, 31%);
   color: hsl(0, 0%, 100%);
 }
 
@@ -79,15 +83,13 @@ body {
   font-weight: 700;
 }
 
-.phase {
-  margin-top: 10rem;
-}
-.phase__player {
+.phase__play {
   display: inline-block;
   position: relative;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  margin-top: 10rem;
 }
 .phase__bg {
   height: 20rem;
@@ -97,9 +99,35 @@ body {
   height: 100%;
   width: 100%;
 }
-.phase__house {
+.phase__comparism {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  width: 90rem;
+  max-width: 100%;
+  margin: 0 auto;
+  gap: 6rem;
+}
+.phase__pick {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.phase__pick-text {
+  font-size: 2.5rem;
+  letter-spacing: 1.5px;
+  margin-bottom: 5rem;
+}
+.phase__status {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  transform: translateY(35%);
+}
+.phase__status-text {
+  font-size: 6rem;
+  letter-spacing: 1.5px;
 }
 
 .icon {
@@ -111,6 +139,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 .icon::before {
   content: "";
@@ -123,64 +152,97 @@ body {
   left: 50%;
   transform: translate(-50%, -47%);
   z-index: 2;
-  box-shadow: 0 -10px 0 #e6e6e6;
+  box-shadow: 0 -6px 0 #e6e6e6;
 }
 .icon__img {
   position: relative;
   z-index: 3;
-  height: 45%;
+  height: 40%;
   transition: height 0.3s ease;
 }
 .icon--paper {
-  background-color: hsl(230, 89%, 65%);
+  background-image: linear-gradient(to right, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
-  box-shadow: 0 7px 0 hsl(230, 89%, 55%);
+  box-shadow: 0 9px 0 hsl(230, 89%, 55%);
 }
 .icon--paper:active {
   box-shadow: 0 0 0 hsl(230, 89%, 55%);
   transform: translate(-50%, -45%);
 }
 .icon--scissors {
-  background-color: hsl(40, 84%, 53%);
+  background-image: linear-gradient(to right, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
-  box-shadow: 0 7px 0 hsl(39, 89%, 43%);
+  box-shadow: 0 9px 0 hsl(40, 84%, 43%);
 }
 .icon--scissors:active {
-  box-shadow: 0 0 0 hsl(39, 89%, 43%);
+  box-shadow: 0 0 0 hsl(40, 84%, 43%);
   transform: translate(50%, -45%);
 }
 .icon--rock {
-  background-color: hsl(349, 70%, 56%);
+  background-image: linear-gradient(to right, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  box-shadow: 0 7px 0 hsl(349, 71%, 46%);
+  box-shadow: 0 9px 0 hsl(349, 70%, 46%);
 }
 .icon--rock:active {
-  box-shadow: 0 0 0 hsl(349, 71%, 46%);
+  box-shadow: 0 0 0 hsl(349, 70%, 46%);
   transform: translate(-50%, 55%);
 }
+.icon--large {
+  position: static;
+  transform: translate(0, 0);
+  width: 25rem;
+  height: 25rem;
+}
+.icon--large::before {
+  box-shadow: 0 -9px 0 #e6e6e6;
+}
+.icon--large:active {
+  transform: translate(0, 10px);
+}
 .icon:hover .icon__img {
-  height: 55%;
+  height: 45%;
 }
 
 .btn {
-  background-color: transparent;
-  color: hsl(0, 0%, 100%);
-  width: 10rem;
-  padding: 1rem;
-  display: block;
-  border: solid 1.5px hsl(0, 0%, 100%);
-  border-radius: 10px;
+  border-radius: 5px;
   font-weight: 600;
   text-transform: uppercase;
+  transition: all 0.3s ease;
+  font-size: 1.6rem;
+  font-family: inherit;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+  padding: 1rem;
+}
+.btn--rules {
+  background-color: transparent;
+  color: hsl(0, 0%, 100%);
+  width: 13rem;
+  display: block;
+  border: solid 1.5px hsl(0, 0%, 100%);
   position: absolute;
   bottom: 5%;
   right: 5%;
+  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+}
+.btn--rules:hover {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(229, 25%, 31%);
+}
+.btn--again {
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(229, 25%, 31%);
+  width: 20rem;
+  border: none;
+}
+.btn--again:hover {
+  color: hsl(349, 70%, 46%);
 }
 
 /*# sourceMappingURL=style.css.map */
