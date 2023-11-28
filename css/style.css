@@ -79,29 +79,34 @@ body {
   font-weight: 700;
 }
 
-.part {
+.phase {
+  margin-top: 10rem;
+}
+.phase__player {
   display: inline-block;
   position: relative;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 10rem;
 }
-
-.bg-shape {
+.phase__bg {
   height: 20rem;
   width: 23rem;
 }
-.bg-shape__img {
+.phase__bg-img {
   height: 100%;
   width: 100%;
+}
+.phase__house {
+  display: flex;
+  justify-content: space-between;
 }
 
 .icon {
   position: absolute;
   border-radius: 50%;
   width: 18rem;
-  height: 17rem;
+  height: 18rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -118,10 +123,7 @@ body {
   left: 50%;
   transform: translate(-50%, -47%);
   z-index: 2;
-  box-shadow: 0 -6px 0 #e6e6e6;
-}
-.icon:hover .icon__img {
-  height: 55%;
+  box-shadow: 0 -10px 0 #e6e6e6;
 }
 .icon__img {
   position: relative;
@@ -129,35 +131,41 @@ body {
   height: 45%;
   transition: height 0.3s ease;
 }
-.icon--scissors {
-  background-image: linear-gradient(to right, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+.icon--paper {
+  background-color: hsl(230, 89%, 65%);
   top: 0;
   left: 0;
   transform: translate(-50%, -50%);
-  box-shadow: 0 7px 0 #a46e0a;
+  box-shadow: 0 7px 0 hsl(230, 89%, 55%);
 }
-.icon--scissors:active {
-  box-shadow: 0 0 0 #a46e0a;
+.icon--paper:active {
+  box-shadow: 0 0 0 hsl(230, 89%, 55%);
+  transform: translate(-50%, -45%);
 }
-.icon--paper {
-  background-image: linear-gradient(to right, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+.icon--scissors {
+  background-color: hsl(40, 84%, 53%);
   top: 0;
   right: 0;
   transform: translate(50%, -50%);
-  box-shadow: 0 7px 0 #0d31e3;
+  box-shadow: 0 7px 0 hsl(39, 89%, 43%);
 }
-.icon--paper:active {
-  box-shadow: 0 0 0 #0d31e3;
+.icon--scissors:active {
+  box-shadow: 0 0 0 hsl(39, 89%, 43%);
+  transform: translate(50%, -45%);
 }
 .icon--rock {
-  background-image: linear-gradient(to right, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+  background-color: hsl(349, 70%, 56%);
   bottom: 0;
   left: 50%;
   transform: translate(-50%, 50%);
-  box-shadow: 0 7px 0 #a11b34;
+  box-shadow: 0 7px 0 hsl(349, 71%, 46%);
 }
 .icon--rock:active {
-  box-shadow: 0 0 0 #a11b34;
+  box-shadow: 0 0 0 hsl(349, 71%, 46%);
+  transform: translate(-50%, 55%);
+}
+.icon:hover .icon__img {
+  height: 55%;
 }
 
 .btn {
@@ -166,8 +174,8 @@ body {
   width: 10rem;
   padding: 1rem;
   display: block;
-  border: solid 2px hsl(0, 0%, 100%);
-  border-radius: 7px;
+  border: solid 1.5px hsl(0, 0%, 100%);
+  border-radius: 10px;
   font-weight: 600;
   text-transform: uppercase;
   position: absolute;

@@ -1,0 +1,67 @@
+.icon {
+  position: absolute;
+  border-radius: 50%;
+  width: 18rem;
+  height: 18rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  &::before {
+    content: "";
+    border-radius: 50%;
+    height: 75%;
+    width: 75%;
+    background-color: $color-white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -47%);
+    z-index: 2;
+    box-shadow: 0 -10px 0 darken($color-white, 10%);
+  }
+  &__img {
+    position: relative;
+    z-index: 3;
+    height: 45%;
+    transition: height 0.3s ease;
+  }
+
+  &--paper {
+    background-color: $paper;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 7px 0 $paper-h;
+    &:active {
+      box-shadow: 0 0 0 $paper-h;
+      transform: translate(-50%, -45%);
+    }
+  }
+  &--scissors {
+    background-color: $scissors;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    box-shadow: 0 7px 0 $scissors-h;
+    &:active {
+      box-shadow: 0 0 0 $scissors-h;
+      transform: translate(50%, -45%);
+    }
+  }
+  &--rock {
+    background-color: $rock;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    box-shadow: 0 7px 0 $rock-h;
+    &:active {
+      box-shadow: 0 0 0 $rock-h;
+      transform: translate(-50%, 55%);
+    }
+  }
+
+  &:hover &__img {
+    height: 55%;
+  }
+}

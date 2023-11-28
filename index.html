@@ -16,15 +16,6 @@
     />
     <link rel="stylesheet" href="css/style.css" />
     <title>Rock, Paper, Scissors</title>
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
   </head>
   <body>
     <header class="header">
@@ -37,13 +28,70 @@
       </div>
     </header>
     <main class="main">
-      <!-- Pick your choice -->
-      <div class="part part--tri">
-        <div class="bg-shape bg-shape--tri">
+      <!-- Classic -- Rock paper scissors -->
+      <div class="phase phase--classic">
+        <!-- Player's choice -->
+        <div class="phase__player">
+          <div class="phase__bg phase__bg--classic">
+            <img
+              src="images/bg-triangle.svg"
+              alt="triangle"
+              class="phase__bg-img"
+            />
+          </div>
+          <div class="icon icon--rock">
+            <img
+              src="images/icon-rock.svg"
+              alt="rock"
+              class="icon__img icon__img--rock"
+            />
+          </div>
+          <div class="icon icon--paper">
+            <img
+              src="images/icon-paper.svg"
+              alt="paper"
+              class="icon__img icon__img--paper"
+            />
+          </div>
+          <div class="icon icon--scissors">
+            <img
+              src="images/icon-scissors.svg"
+              alt="scissors"
+              class="icon__img icon__img--scissors"
+            />
+          </div>
+        </div>
+
+        <!-- House's choice and comparism -->
+        <!-- <div class="phase__house">
+          <div class="icon icon--rock">
+            <img
+              src="images/icon-rock.svg"
+              alt="rock"
+              class="icon__img icon__img--rock"
+            />
+          </div>
+          <div class="status">
+            <p class="status__text">You win</p>
+            <button class="btn btn--again">Play again</button>
+          </div>
+          <div class="icon icon--paper">
+            <img
+              src="images/icon-paper.svg"
+              alt="paper"
+              class="icon__img icon__img--paper"
+            />
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Extended -- Rock paper scissors lizard spock -->
+      <!-- <div class="phase phase--extended">
+        <div class="phase__bg phase__bg--extended">
           <img
-            src="images/bg-triangle.svg"
-            alt="triangle"
-            class="bg-shape__img"
+            src="images/bg-pentagon.svg"
+            alt="Pentagon"
+            class="phase__bg-img"
           />
         </div>
         <div class="icon icon--rock">
@@ -67,7 +115,21 @@
             class="icon__img icon__img--scissors"
           />
         </div>
-      </div>
+        <div class="icon icon--lizard">
+          <img
+            src="images/icon-lizard.svg"
+            alt="lizard"
+            class="icon__img icon__img--lizard"
+          />
+        </div>
+        <div class="icon icon--spock">
+          <img
+            src="images/icon-spock.svg"
+            alt="spock"
+            class="icon__img icon__img--spock"
+          />
+        </div>
+      </div> -->
     </main>
 
     <button class="btn btn--rules">Rules</button>
