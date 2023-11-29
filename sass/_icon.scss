@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: center;
   transition: all 0.3s ease;
+  z-index: 5;
   cursor: pointer;
   &::before {
     content: "";
@@ -18,12 +19,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -47%);
-    z-index: 2;
+    z-index: 4;
     box-shadow: 0 -6px 0 darken($color-white, 10%);
   }
   &__img {
     position: relative;
-    z-index: 3;
+    z-index: 4;
     height: 40%;
     transition: height 0.3s ease;
   }
@@ -62,28 +63,66 @@
     }
   }
   &--large {
-    position: static;
+    position: relative;
     transform: translate(0, 0);
-    // box-shadow: 0 10px 0 $rock-h;
     width: 25rem;
     height: 25rem;
+    top: 0;
+    left: 0;
+    right: 0;
     &::before {
-      box-shadow: 0 -9px 0 darken($color-white, 10%);
+      box-shadow: 0 -10px 0 darken($color-white, 10%);
     }
     &:active {
       transform: translate(0, 10px);
     }
   }
-  // &--winner {
-  //   &:hover {
-  //     background-image: radial-gradient(
-  //       circle,
-  //       rgb(248, 242, 242) 20%,
-  //       #dbd2d1 40%,
-  //       #a09395 60%
-  //     );
-  //   }
-  // }
+  &--large &--rock {
+    box-shadow: 0 10px 0 $rock-h;
+  }
+  &--large &--paper {
+    box-shadow: 0 10px 0 $paper-h;
+  }
+  &--large &--scissors {
+    box-shadow: 0 10px 0 $scissors-h;
+  }
+
+  &--winner {
+  }
+
+  &__hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: orangered;
+    width: 25rem;
+    height: 25rem;
+    border-radius: 50%;
+    transform: scale(1.3);
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      background-color: blue;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      scale: 1.3;
+    }
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   top: 0;
+    //   left: 0;
+    //   // z-index: 1;
+    //   background-color: green;
+    //   width: 25rem;
+    //   height: 25rem;
+    //   scale: 1.7;
+    // }
+  }
 
   &:hover &__img {
     height: 45%;
