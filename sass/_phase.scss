@@ -1,4 +1,5 @@
 .phase {
+  // Playground or choose phase
   &__play {
     display: inline-block;
     position: relative;
@@ -16,6 +17,7 @@
     width: 100%;
   }
 
+  // Comparism phase styles
   &__comparism {
     display: flex;
     align-items: center;
@@ -25,8 +27,7 @@
     margin: 0 auto;
     gap: 6rem;
   }
-  &__pick {
-    // margin-bottom: ;
+  &__player-pick {
     display: flex;
     flex-direction: column;
     align-items: center;

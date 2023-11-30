@@ -27,6 +27,16 @@
         <div class="header__score">12</div>
       </div>
     </header>
+
+    <!-- Rules modal -->
+    <div class="modal">
+      <div class="modal__heading"></div>
+      <div class="modal__cancel"></div>
+      <div class="modal__rules-box">
+        <img src="" alt="" class="modal__rules" />
+      </div>
+    </div>
+
     <main class="main">
       <!-- Classic -- Rock paper scissors -->
       <!-- <div class="phase phase--classic">
@@ -62,46 +72,6 @@
           </div>
         </div>
       </div> -->
-
-      <!-- House's choice and comparism -->
-      <div class="phase__comparism">
-        <div class="phase__pick">
-          <p class="phase__pick-text">you picked</p>
-          <div class="icon icon--rock icon--large">
-            <img
-              src="images/icon-rock.svg"
-              alt="rock"
-              class="icon__img icon__img--rock"
-            />
-          </div>
-        </div>
-
-        <div class="phase__status">
-          <p class="phase__status-text">You win</p>
-          <button class="btn btn--again">Play again</button>
-        </div>
-
-        <div class="phase__house-pick">
-          <p class="phase__pick-text">The house picked</p>
-
-          <div class="phase__icon-box">
-            <div class="icon icon--paper icon--large icon--winner">
-              <img
-                src="images/icon-paper.svg"
-                alt="paper"
-                class="icon__img icon__img--paper"
-              />
-            </div>
-            <div class="icon__winner">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
-          <!-- <span class="span-2"></span>
-          <span class="span-3"></span> -->
-        </div>
-      </div>
 
       <!-- Extended -- Rock paper scissors lizard spock -->
       <!-- <div class="phase phase--extended">
@@ -148,6 +118,53 @@
           />
         </div>
       </div> -->
+
+      <!-- Comparism phase -->
+      <div class="phase__comparism">
+        <!-- Player pick -->
+        <div class="phase__player-pick">
+          <p class="phase__pick-text">you picked</p>
+          <div class="phase__icon-box">
+            <div class="icon icon--rock icon--large">
+              <img
+                src="images/icon-rock.svg"
+                alt="rock"
+                class="icon__img icon__img--rock"
+              />
+            </div>
+            <div class="icon__winner">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Display winner or looser status -->
+        <div class="phase__status">
+          <p class="phase__status-text">You win</p>
+          <button class="btn btn--again">Play again</button>
+        </div>
+
+        <!-- House pick -->
+        <div class="phase__house-pick">
+          <p class="phase__pick-text">The house picked</p>
+          <div class="phase__icon-box">
+            <div class="icon icon--paper icon--large icon--winner">
+              <img
+                src="images/icon-paper.svg"
+                alt="paper"
+                class="icon__img icon__img--paper"
+              />
+            </div>
+            <div class="icon__winner">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
 
     <button class="btn btn--rules">Rules</button>
