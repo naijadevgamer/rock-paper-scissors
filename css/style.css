@@ -108,7 +108,7 @@ body {
   margin: 0 auto;
   gap: 6rem;
 }
-.phase__pick {
+.phase__player-pick {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -291,6 +291,43 @@ body {
 }
 .btn--again:hover {
   color: hsl(349, 70%, 46%);
+}
+
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 10;
+}
+
+.modal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content min-content;
+  grid-row-gap: 4rem;
+  height: min-content;
+  width: max-content;
+  background-color: hsl(0, 0%, 100%);
+  padding: 4rem;
+  border-radius: 10px;
+  align-items: center;
+}
+.modal__heading {
+  color: hsl(229, 25%, 31%);
+  font-weight: 700;
+  font-size: 3rem;
+}
+.modal__close {
+  justify-self: end;
+}
+.modal__rules-box {
+  grid-column: 1/3;
+  justify-self: center;
 }
 
 /*# sourceMappingURL=style.css.map */
