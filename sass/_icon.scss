@@ -63,6 +63,30 @@
     }
   }
 
+  // Extendend version icon
+  &--lizard {
+    background-image: $lizard-gradient;
+    bottom: 0;
+    left: 0;
+    transform: translate(-5%, 50%);
+    box-shadow: 0 7px 0 $lizard-h;
+    &:active {
+      box-shadow: 0 0 0 $lizard-h;
+      transform: translate(-5%, 55%);
+    }
+  }
+  &--spock {
+    background-image: $spock-gradient;
+    top: 10%;
+    left: 0;
+    transform: translate(-50%, 0);
+    box-shadow: 0 7px 0 $spock-h;
+    &:active {
+      box-shadow: 0 0 0 $spock-h;
+      transform: translate(-50%, 5%);
+    }
+  }
+
   // icon component large styles
   &--large {
     position: relative;
@@ -126,5 +150,31 @@
 
   &:hover &__img {
     height: 45%;
+  }
+}
+
+// extended version modifier
+.icon--extended {
+  width: 15rem;
+  height: 15rem;
+}
+.icon--extended.icon--paper {
+  top: 10%;
+  left: 100%;
+  transform: translate(-50%, 0);
+  &:active {
+    transform: translate(-50%, 5%);
+  }
+}
+.icon--extended.icon--scissors {
+  top: 0;
+  right: 50%;
+}
+.icon--extended.icon--rock {
+  bottom: 0;
+  left: calc(100% - 15rem);
+  transform: translate(0, 50%);
+  &:active {
+    transform: translate(0, 55%);
   }
 }

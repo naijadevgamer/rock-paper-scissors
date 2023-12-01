@@ -20,7 +20,8 @@
   <body>
     <header class="header">
       <div class="header__name">
-        <span>Rock</span><span>Paper</span><span>Scissors</span>
+        <img src="images/logo.svg" alt="logo" />
+        <!-- <img src="images/logo-bonus.svg" alt="logo" /> -->
       </div>
       <div class="header__score-box">
         <div class="header__score-text">score</div>
@@ -29,7 +30,7 @@
     </header>
 
     <!-- Rules modal -->
-    <div class="modal-container">
+    <!-- <div class="modal-container">
       <div class="modal">
         <h2 class="modal__heading">Rules</h2>
         <img
@@ -41,13 +42,13 @@
           <img src="images/image-rules.svg" alt="" class="modal__rules" />
         </div>
       </div>
-    </div>
+    </div> -->
 
     <main class="main">
       <!-- Classic -- Rock paper scissors -->
       <!-- <div class="phase phase--classic">
-        Player's choice
         <div class="phase__play">
+          Player's choice
           <div class="phase__bg phase__bg--classic">
             <img
               src="images/bg-triangle.svg"
@@ -80,55 +81,57 @@
       </div> -->
 
       <!-- Extended -- Rock paper scissors lizard spock -->
-      <!-- <div class="phase phase--extended">
-        <div class="phase__bg phase__bg--extended">
-          <img
-            src="images/bg-pentagon.svg"
-            alt="Pentagon"
-            class="phase__bg-img"
-          />
+      <div class="phase phase--extended">
+        <div class="phase__play">
+          <div class="phase__bg phase__bg--extended">
+            <img
+              src="images/bg-pentagon.svg"
+              alt="Pentagon"
+              class="phase__bg-img"
+            />
+          </div>
+          <div class="icon icon--extended icon--rock">
+            <img
+              src="images/icon-rock.svg"
+              alt="rock"
+              class="icon__img icon__img--rock"
+            />
+          </div>
+          <div class="icon icon--extended icon--paper">
+            <img
+              src="images/icon-paper.svg"
+              alt="paper"
+              class="icon__img icon__img--paper"
+            />
+          </div>
+          <div class="icon icon--extended icon--scissors">
+            <img
+              src="images/icon-scissors.svg"
+              alt="scissors"
+              class="icon__img icon__img--scissors"
+            />
+          </div>
+          <div class="icon icon--extended icon--lizard">
+            <img
+              src="images/icon-lizard.svg"
+              alt="lizard"
+              class="icon__img icon__img--lizard"
+            />
+          </div>
+          <div class="icon icon--extended icon--spock">
+            <img
+              src="images/icon-spock.svg"
+              alt="spock"
+              class="icon__img icon__img--spock"
+            />
+          </div>
         </div>
-        <div class="icon icon--rock">
-          <img
-            src="images/icon-rock.svg"
-            alt="rock"
-            class="icon__img icon__img--rock"
-          />
-        </div>
-        <div class="icon icon--paper">
-          <img
-            src="images/icon-paper.svg"
-            alt="paper"
-            class="icon__img icon__img--paper"
-          />
-        </div>
-        <div class="icon icon--scissors">
-          <img
-            src="images/icon-scissors.svg"
-            alt="scissors"
-            class="icon__img icon__img--scissors"
-          />
-        </div>
-        <div class="icon icon--lizard">
-          <img
-            src="images/icon-lizard.svg"
-            alt="lizard"
-            class="icon__img icon__img--lizard"
-          />
-        </div>
-        <div class="icon icon--spock">
-          <img
-            src="images/icon-spock.svg"
-            alt="spock"
-            class="icon__img icon__img--spock"
-          />
-        </div>
-      </div> -->
+      </div>
 
       <!-- Comparism phase -->
-      <div class="phase__comparism">
-        <!-- Player pick -->
-        <div class="phase__player-pick">
+      <!-- <div class="phase__comparism"> -->
+      <!-- Player pick -->
+      <!-- <div class="phase__player-pick">
           <p class="phase__pick-text">you picked</p>
           <div class="phase__icon-box">
             <div class="icon icon--rock icon--large">
@@ -144,16 +147,16 @@
               <span></span>
             </div>
           </div>
-        </div>
+        </div> -->
 
-        <!-- Display winner or looser status -->
-        <div class="phase__status">
+      <!-- Display winner or looser status -->
+      <!-- <div class="phase__status">
           <p class="phase__status-text">You win</p>
           <button class="btn btn--again">Play again</button>
-        </div>
+        </div> -->
 
-        <!-- House pick -->
-        <div class="phase__house-pick">
+      <!-- House pick -->
+      <!-- <div class="phase__house-pick">
           <p class="phase__pick-text">The house picked</p>
           <div class="phase__icon-box">
             <div class="icon icon--paper icon--large icon--winner">
@@ -170,7 +173,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </main>
 
     <button class="btn btn--rules">Rules</button>

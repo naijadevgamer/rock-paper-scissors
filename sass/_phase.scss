@@ -54,6 +54,17 @@
   }
   // &--classic{
   // }
-  // &--extendend{
-  // }
+}
+
+.phase--extended {
+  .phase {
+    // Playground or choose phase for extension
+    &__bg {
+      height: 30rem;
+      width: 33rem;
+    }
+    &__play {
+      margin-top: 7rem;
+    }
+  }
 }
