@@ -37,8 +37,8 @@ body {
 }
 
 ::selection {
-  background-color: hsl(229, 25%, 31%);
-  color: hsl(0, 0%, 100%);
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(229, 25%, 31%);
 }
 
 .header {
