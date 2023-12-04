@@ -12,8 +12,8 @@
     height: 20rem;
     width: 23rem;
     @media only screen and (max-width: $bp-phone) {
-      height: 30vw;
-      width: 40vw;
+      height: 40vw;
+      width: 45vw;
     }
   }
   &__bg-img {
@@ -24,22 +24,33 @@
   // Comparism phase styles
   &__comparism {
     display: flex;
-    align-items: center;
+    // align-items: center;
     justify-content: center;
     width: 90rem;
     max-width: 100%;
     margin: 0 auto;
     gap: 6rem;
+    @media only screen and (max-width: $bp-phone) {
+      gap: 5vw;
+    }
   }
-  &__player-pick {
+  &__pick {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
+    @media only screen and (max-width: $bp-phone) {
+      flex-direction: column-reverse;
+    }
   }
   &__pick-text {
     font-size: 2.5rem;
     letter-spacing: 1.5px;
-    margin-bottom: 5rem;
+    text-align: center;
+    @media only screen and (max-width: $bp-phone) {
+      font-size: 1.8rem;
+      justify-self: baseline;
+    }
   }
   &__status {
     display: flex;
@@ -55,6 +66,11 @@
   }
   &__icon-box {
     position: relative;
+    margin-top: 5rem;
+    @media only screen and (max-width: $bp-phone) {
+      margin-bottom: 4rem;
+      margin-top: 0;
+    }
   }
   // &--classic{
   // }
@@ -66,6 +82,10 @@
     &__bg {
       height: 30rem;
       width: 33rem;
+      @media only screen and (max-width: $bp-phone) {
+        height: 47vw;
+        width: 50vw;
+      }
     }
     &__play {
       margin-top: 7rem;

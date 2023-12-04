@@ -10,8 +10,8 @@
   z-index: 1;
   cursor: pointer;
   @media only screen and (max-width: $bp-phone) {
-    width: 30vw;
-    height: 30vw;
+    width: 35vw;
+    height: 35vw;
   }
   &::before {
     content: "";
@@ -24,7 +24,7 @@
     left: 50%;
     transform: translate(-50%, -47%);
     z-index: 4;
-    box-shadow: 0 -6px 0 darken($color-white, 10%);
+    box-shadow: 0 -0.6rem 0 darken($color-white, 10%);
   }
   &__img {
     position: relative;
@@ -38,10 +38,10 @@
     top: 0;
     left: 0;
     transform: translate(-50%, -50%);
-    box-shadow: 0 7px 0 $paper-h;
+    box-shadow: 0 0.7rem 0 $paper-h;
     &:active {
       box-shadow: 0 0 0 $paper-h;
-      transform: translate(-50%, -45%);
+      transform: translate(-50%, calc(-50% + 0.7rem));
     }
   }
   &--scissors {
@@ -49,10 +49,10 @@
     top: 0;
     right: 0;
     transform: translate(50%, -50%);
-    box-shadow: 0 7px 0 $scissors-h;
+    box-shadow: 0 0.7rem 0 $scissors-h;
     &:active {
       box-shadow: 0 0 0 $scissors-h;
-      transform: translate(50%, -45%);
+      transform: translate(50%, calc(-50% + 0.7rem));
     }
   }
   &--rock {
@@ -60,10 +60,10 @@
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 50%);
-    box-shadow: 0 7px 0 $rock-h;
+    box-shadow: 0 0.7rem 0 $rock-h;
     &:active {
       box-shadow: 0 0 0 $rock-h;
-      transform: translate(-50%, 55%);
+      transform: translate(-50%, calc(50% + 0.7rem));
     }
   }
 
@@ -73,10 +73,10 @@
     bottom: 0;
     left: 0;
     transform: translate(-5%, 50%);
-    box-shadow: 0 7px 0 $lizard-h;
+    box-shadow: 0 0.7rem 0 $lizard-h;
     &:active {
       box-shadow: 0 0 0 $lizard-h;
-      transform: translate(-5%, 55%);
+      transform: translate(-5%, calc(50% + 0.7rem));
     }
   }
   &--spock {
@@ -84,37 +84,11 @@
     top: 10%;
     left: 0;
     transform: translate(-50%, 0);
-    box-shadow: 0 7px 0 $spock-h;
+    box-shadow: 0 0.7rem 0 $spock-h;
     &:active {
       box-shadow: 0 0 0 $spock-h;
-      transform: translate(-50%, 5%);
+      transform: translate(-50%, 0.7rem);
     }
-  }
-
-  // icon component large styles
-  &--large {
-    position: relative;
-    transform: translate(0, 0);
-    width: 25rem;
-    height: 25rem;
-    top: 0;
-    left: 0;
-    right: 0;
-    &::before {
-      box-shadow: 0 -10px 0 darken($color-white, 10%);
-    }
-    &:active {
-      transform: translate(0, 10px);
-    }
-  }
-  &--large &--rock {
-    box-shadow: 0 10px 0 $rock-h;
-  }
-  &--large &--paper {
-    box-shadow: 0 10px 0 $paper-h;
-  }
-  &--large &--scissors {
-    box-shadow: 0 10px 0 $scissors-h;
   }
 
   // winner style
@@ -157,17 +131,62 @@
   }
 }
 
+// icon component large styles
+.icon--large {
+  position: relative;
+  transform: translate(0, 0);
+  width: 25rem;
+  height: 25rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  @media only screen and (max-width: $bp-phone) {
+    height: 40vw;
+    width: 40vw;
+  }
+  &::before {
+    box-shadow: 0 -1rem 0 darken($color-white, 10%);
+  }
+  &:active {
+    transform: translate(0, 1rem);
+  }
+}
+
+.icon--large.icon--paper {
+  box-shadow: 0 1rem 0 $paper-h;
+  &:active {
+    box-shadow: 0 0 0 $paper-h;
+  }
+}
+.icon--large.icon--scissors {
+  box-shadow: 0 1rem 0 $scissors-h;
+  &:active {
+    box-shadow: 0 0 0 $scissors-h;
+  }
+}
+
+.icon--large.icon--rock {
+  box-shadow: 0 1rem 0 $rock-h;
+  &:active {
+    box-shadow: 0 0 0 $rock-h;
+  }
+}
+
 // extended version modifier
 .icon--extended {
   width: 15rem;
   height: 15rem;
+  @media only screen and (max-width: $bp-phone) {
+    height: 25vw;
+    width: 25vw;
+  }
 }
 .icon--extended.icon--paper {
   top: 10%;
   left: 100%;
   transform: translate(-50%, 0);
   &:active {
-    transform: translate(-50%, 5%);
+    transform: translate(-50%, 0.7rem);
   }
 }
 .icon--extended.icon--scissors {
@@ -176,9 +195,10 @@
 }
 .icon--extended.icon--rock {
   bottom: 0;
-  left: calc(100% - 15rem);
+  left: 57%;
   transform: translate(0, 50%);
+  z-index: 10;
   &:active {
-    transform: translate(0, 55%);
+    transform: translate(0, calc(50% + 0.7rem));
   }
 }

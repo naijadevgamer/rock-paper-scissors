@@ -15,10 +15,14 @@
     width: 13rem;
     display: block;
     border: solid 1.5px $color-white;
-    position: absolute;
+    position: fixed;
     bottom: 5%;
     right: 5%;
     box-shadow: $shadow-light;
+    @media only screen and (max-width: $bp-phone) {
+      position: static;
+      margin: 20rem auto 2rem auto;
+    }
     &:hover {
       background-color: $color-white;
       color: $dark-text;
@@ -30,7 +34,6 @@
     color: $dark-text;
     width: 20rem;
     border: none;
-
     &:hover {
       color: $rock-h;
     }

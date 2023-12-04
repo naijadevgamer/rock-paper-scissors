@@ -81,6 +81,9 @@ body {
   // -moz-osx-font-smoothing: grayscale;
   padding: 2rem;
   font-weight: 600;
+  main {
+    margin-bottom: 10rem;
+  }
 }
 ::selection {
   background-color: $color-white;
