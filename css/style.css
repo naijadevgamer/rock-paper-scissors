@@ -32,7 +32,7 @@ body {
   min-height: 100vh;
   color: hsl(0, 0%, 100%);
   text-transform: uppercase;
-  padding: 2rem;
+  padding: 0 3rem;
   font-weight: 600;
 }
 body main {
@@ -131,22 +131,34 @@ body main {
 }
 .phase__comparism {
   display: flex;
+  align-items: center;
   justify-content: center;
   width: 90rem;
   max-width: 100%;
   margin: 0 auto;
   gap: 6rem;
 }
+@media only screen and (max-width: 56.25em) {
+  .phase__comparism {
+    flex-wrap: wrap;
+  }
+}
 @media only screen and (max-width: 37.5em) {
   .phase__comparism {
     gap: 5vw;
+    align-items: flex-start;
+    flex-wrap: wrap;
   }
 }
 .phase__pick {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+}
+@media only screen and (max-width: 56.25em) {
+  .phase__pick {
+    flex-basis: 45%;
+  }
 }
 @media only screen and (max-width: 37.5em) {
   .phase__pick {
@@ -161,7 +173,7 @@ body main {
 @media only screen and (max-width: 37.5em) {
   .phase__pick-text {
     font-size: 1.8rem;
-    justify-self: baseline;
+    margin-top: 4rem;
   }
 }
 .phase__status {
@@ -170,6 +182,11 @@ body main {
   flex-direction: column;
   margin: 0 auto;
   transform: translateY(35%);
+}
+@media only screen and (max-width: 56.25em) {
+  .phase__status {
+    order: 1;
+  }
 }
 .phase__status-text {
   font-size: 6rem;
@@ -181,7 +198,6 @@ body main {
 }
 @media only screen and (max-width: 37.5em) {
   .phase__icon-box {
-    margin-bottom: 4rem;
     margin-top: 0;
   }
 }
@@ -301,6 +317,11 @@ body main {
   border-radius: 50%;
   transform: scale(2.5);
 }
+@media only screen and (max-width: 37.5em) {
+  .icon__winner {
+    transform: scale(2.1);
+  }
+}
 .icon__winner span:first-child,
 .icon__winner span:nth-child(2),
 .icon__winner span:last-child {
@@ -324,6 +345,12 @@ body main {
   width: 55%;
   height: 55%;
 }
+@media only screen and (max-width: 37.5em) {
+  .icon__winner span:last-child {
+    width: 60%;
+    height: 60%;
+  }
+}
 .icon:hover .icon__img {
   height: 45%;
 }
@@ -339,19 +366,34 @@ body main {
 }
 @media only screen and (max-width: 37.5em) {
   .icon--large {
-    height: 40vw;
-    width: 40vw;
+    height: 35vw;
+    width: 35vw;
   }
 }
 .icon--large::before {
   box-shadow: 0 -1rem 0 #e6e6e6;
 }
+@media only screen and (max-width: 37.5em) {
+  .icon--large::before {
+    box-shadow: 0 -5px 0 #e6e6e6;
+  }
+}
 .icon--large:active {
   transform: translate(0, 1rem);
+}
+@media only screen and (max-width: 37.5em) {
+  .icon--large:active {
+    transform: translate(0, 5px);
+  }
 }
 
 .icon--large.icon--paper {
   box-shadow: 0 1rem 0 hsl(230, 89%, 55%);
+}
+@media only screen and (max-width: 37.5em) {
+  .icon--large.icon--paper {
+    box-shadow: 0 5px 0 hsl(230, 89%, 55%);
+  }
 }
 .icon--large.icon--paper:active {
   box-shadow: 0 0 0 hsl(230, 89%, 55%);
@@ -360,12 +402,22 @@ body main {
 .icon--large.icon--scissors {
   box-shadow: 0 1rem 0 hsl(40, 84%, 43%);
 }
+@media only screen and (max-width: 37.5em) {
+  .icon--large.icon--scissors {
+    box-shadow: 0 5px 0 hsl(40, 84%, 43%);
+  }
+}
 .icon--large.icon--scissors:active {
   box-shadow: 0 0 0 hsl(40, 84%, 43%);
 }
 
 .icon--large.icon--rock {
   box-shadow: 0 1rem 0 hsl(349, 70%, 46%);
+}
+@media only screen and (max-width: 37.5em) {
+  .icon--large.icon--rock {
+    box-shadow: 0 5px 0 hsl(349, 70%, 46%);
+  }
 }
 .icon--large.icon--rock:active {
   box-shadow: 0 0 0 hsl(349, 70%, 46%);

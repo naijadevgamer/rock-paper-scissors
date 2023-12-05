@@ -100,6 +100,9 @@
     height: 100%;
     border-radius: 50%;
     transform: scale(2.5);
+    @media only screen and (max-width: $bp-phone) {
+      transform: scale(2.1);
+    }
 
     span:first-child,
     span:nth-child(2),
@@ -123,6 +126,10 @@
     span:last-child {
       width: 55%;
       height: 55%;
+      @media only screen and (max-width: $bp-phone) {
+        width: 60%;
+        height: 60%;
+      }
     }
   }
 
@@ -141,25 +148,38 @@
   left: 0;
   right: 0;
   @media only screen and (max-width: $bp-phone) {
-    height: 40vw;
-    width: 40vw;
+    height: 35vw;
+    width: 35vw;
   }
   &::before {
     box-shadow: 0 -1rem 0 darken($color-white, 10%);
+    @media only screen and (max-width: $bp-phone) {
+      box-shadow: 0 -5px 0 darken($color-white, 10%);
+    }
   }
   &:active {
     transform: translate(0, 1rem);
+    @media only screen and (max-width: $bp-phone) {
+      transform: translate(0, 5px);
+    }
   }
 }
 
 .icon--large.icon--paper {
   box-shadow: 0 1rem 0 $paper-h;
+  @media only screen and (max-width: $bp-phone) {
+    box-shadow: 0 5px 0 $paper-h;
+  }
+
   &:active {
     box-shadow: 0 0 0 $paper-h;
   }
 }
 .icon--large.icon--scissors {
   box-shadow: 0 1rem 0 $scissors-h;
+  @media only screen and (max-width: $bp-phone) {
+    box-shadow: 0 5px 0 $scissors-h;
+  }
   &:active {
     box-shadow: 0 0 0 $scissors-h;
   }
@@ -167,6 +187,9 @@
 
 .icon--large.icon--rock {
   box-shadow: 0 1rem 0 $rock-h;
+  @media only screen and (max-width: $bp-phone) {
+    box-shadow: 0 5px 0 $rock-h;
+  }
   &:active {
     box-shadow: 0 0 0 $rock-h;
   }
