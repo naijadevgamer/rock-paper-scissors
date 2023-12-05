@@ -89,38 +89,3 @@ body {
   background-color: $color-white;
   color: $dark-text;
 }
-
-// TYPOGRAPHY
-// %heading {
-//   font-weight: 400;
-//   color: $color-text-h;
-//   line-height: normal;
-// }
-// .h-1 {
-//   @extend %heading;
-//   font-size: 5rem;
-//   @media only screen and (max-width: $bp-small-phone) {
-//     font-size: 3rem;
-//   }
-// }
-// .h-2 {
-//   @extend %heading;
-//   font-size: 4rem;
-//   @media only screen and (max-width: $bp-small-phone) {
-//     font-size: 3rem;
-//   }
-// }
-// .h-3 {
-//   @extend %heading;
-//   font-size: 3rem;
-//   @media only screen and (max-width: $bp-small-phone) {
-//     font-size: 2.5rem;
-//   }
-// }
-// .h-4 {
-//   @extend %heading;
-//   font-size: 2rem;
-//   @media only screen and (max-width: $bp-small-phone) {
-//     font-size: 1.8rem;
-//   }
-// }
