@@ -79,10 +79,12 @@ body {
   text-transform: uppercase;
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
-  padding: 0 3rem;
+  // padding: 0 2.5rem;
   font-weight: 600;
+  overflow-x: hidden;
   main {
-    margin-bottom: 10rem;
+    margin-bottom: 15rem;
+    width: 100%;
   }
 }
 ::selection {

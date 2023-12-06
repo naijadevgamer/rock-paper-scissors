@@ -1,7 +1,7 @@
 .header {
   width: 70rem;
   max-width: 100%;
-  margin: 5rem auto;
+  margin: 6rem auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,8 +12,8 @@
   text-transform: uppercase;
   @media only screen and (max-width: $bp-phone) {
     padding: 1.5rem;
-    margin: 2rem auto;
-    margin-bottom: 7rem;
+    margin: 4rem auto;
+    margin-bottom: 6rem;
   }
 
   &__logo-box {

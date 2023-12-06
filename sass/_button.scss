@@ -19,20 +19,23 @@
     bottom: 5%;
     right: 5%;
     box-shadow: $shadow-light;
+    z-index: 6;
     @media only screen and (max-width: $bp-phone) {
-      position: static;
-      margin: 20rem auto 2rem auto;
+      position: relative;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
     }
     &:hover {
       background-color: $color-white;
       color: $dark-text;
-      // border: solid 2px $rock-h;
+      box-shadow: $shadow-dark;
     }
   }
   &--again {
     background-color: $color-white;
     color: $dark-text;
-    width: 20rem;
+    align-self: stretch;
     border: none;
     &:hover {
       color: $rock-h;

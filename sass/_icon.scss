@@ -100,6 +100,7 @@
     height: 100%;
     border-radius: 50%;
     transform: scale(2.5);
+    // visibility: hidden;
     @media only screen and (max-width: $bp-phone) {
       transform: scale(2.1);
     }
@@ -133,6 +134,18 @@
     }
   }
 
+  &__under {
+    background-color: hsl(214, 47%, 23%);
+    width: 95%;
+    height: 95%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: $shadow-dark;
+  }
+
   &:hover &__img {
     height: 45%;
   }
@@ -147,6 +160,7 @@
   top: 0;
   left: 0;
   right: 0;
+  // visibility: hidden;
   @media only screen and (max-width: $bp-phone) {
     height: 35vw;
     width: 35vw;
@@ -220,7 +234,6 @@
   bottom: 0;
   left: 57%;
   transform: translate(0, 50%);
-  z-index: 10;
   &:active {
     transform: translate(0, calc(50% + 0.7rem));
   }
