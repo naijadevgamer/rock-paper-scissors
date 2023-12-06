@@ -35,7 +35,7 @@ body {
   text-transform: uppercase;
   padding: 0 2.5rem;
   font-weight: 600;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 body main {
   margin-bottom: 15rem;
