@@ -20,6 +20,7 @@
     right: 5%;
     box-shadow: $shadow-light;
     z-index: 6;
+    border-radius: 8px;
     @media only screen and (max-width: $bp-phone) {
       position: relative;
       left: 50%;

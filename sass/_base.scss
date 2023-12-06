@@ -59,6 +59,7 @@ $bp-small-phone: 18.75em; //300px
 
 html {
   box-sizing: border-box;
+  overflow-x: hidden;
   font-size: 62.5%; // 1rem = 10px; 10px/16px = 62.5%
   @media only screen and (min-width: $bp-large-desktop) {
     font-size: 75%;
@@ -79,7 +80,7 @@ body {
   text-transform: uppercase;
   // -webkit-font-smoothing: antialiased;
   // -moz-osx-font-smoothing: grayscale;
-  // padding: 0 2.5rem;
+  padding: 0 2.5rem;
   font-weight: 600;
   overflow-x: hidden;
   main {
