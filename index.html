@@ -20,11 +20,15 @@
   <body>
     <header class="header">
       <div class="header__logo-box">
-        <!-- <img src="images/logo.svg" alt="logo" class="header__logo header__logo--classic"/> -->
+        <img
+          src="images/logo.svg"
+          alt="logo"
+          class="header__logo header__logo--classic"
+        />
         <img
           src="images/logo-bonus.svg"
           alt="logo"
-          class="header__logo header__logo--extended"
+          class="header__logo header__logo--extended hidden"
         />
       </div>
       <div class="header__score-box">
@@ -34,7 +38,7 @@
     </header>
 
     <!-- Rules modal -->
-    <!-- <div class="modal-container">
+    <div class="modal-container hidden">
       <div class="modal">
         <h2 class="modal__heading">Rules</h2>
         <img
@@ -55,11 +59,11 @@
           />
         </div>
       </div>
-    </div> -->
+    </div>
 
     <main class="main">
       <!-- Classic -- Rock paper scissors -->
-      <!-- <div class="phase phase--classic">
+      <div class="phase phase--classic">
         <div class="phase__play">
           Player's choice
           <div class="phase__bg phase__bg--classic">
@@ -91,10 +95,10 @@
             />
           </div>
         </div>
-      </div> -->
+      </div>
 
       <!-- Extended -- Rock paper scissors lizard spock -->
-      <!-- <div class="phase phase--extended">
+      <div class="phase phase--extended hidden">
         <div class="phase__play">
           <div class="phase__bg phase__bg--extended">
             <img
@@ -139,10 +143,10 @@
             />
           </div>
         </div>
-      </div> -->
+      </div>
 
       <!-- Comparism phase -->
-      <div class="phase__comparism">
+      <div class="phase__comparism hidden">
         <!-- Player pick -->
         <div class="phase__pick phase__pick--player">
           <p class="phase__pick-text">you picked</p>
@@ -191,6 +195,7 @@
     </main>
 
     <button class="btn btn--rules">Rules</button>
+    <!-- <button class="btn btn--option">Rules</button> -->
 
     <!-- <div class="attribution">
       Challenge by

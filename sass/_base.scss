@@ -92,3 +92,8 @@ body {
   background-color: $color-white;
   color: $dark-text;
 }
+
+// Some js id
+.hidden {
+  display: none !important;
+}

@@ -47,6 +47,10 @@ body main {
   color: hsl(229, 25%, 31%);
 }
 
+.hidden {
+  display: none !important;
+}
+
 .header {
   width: 70rem;
   max-width: 100%;
