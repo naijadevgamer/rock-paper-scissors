@@ -82,6 +82,8 @@
   &__icon-box {
     position: relative;
     margin-top: 5rem;
+    width: 25rem;
+    height: 25rem;
     @media only screen and (max-width: $bp-phone) {
       margin-top: 0;
     }
