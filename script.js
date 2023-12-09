@@ -21,8 +21,8 @@ for (let i = 0; i < classic.length; i++) {
         ".phase__pick--player .icon__img"
       ).src = `images/icon-${rps[i]}.svg`;
 
+      // show what the house picked
       setTimeout(() => {
-        // show what the house picked
         document
           .querySelector(".phase__pick--house .icon")
           .classList.remove("hidden");
@@ -35,6 +35,53 @@ for (let i = 0; i < classic.length; i++) {
         document.querySelector(
           ".phase__pick--house .icon__under"
         ).style.position = "absolute";
+
+        // show the win or lose status
+        document.querySelector(".phase__status").classList.remove("hidden");
+        // Compare the two picks
+        if (rps[i] === rps[0] && rps[randNum] === rps[1]) {
+          document.querySelector(".phase__status-text").textContent =
+            "You lose";
+          console.log("You lose");
+          document
+            .querySelector(".phase__pick--house .icon__winner")
+            .classList.remove("hidden");
+        } else if (rps[i] === rps[0] && rps[randNum] === rps[2]) {
+          document.querySelector(".phase__status-text").textContent = "You win";
+          console.log("You win");
+          document
+            .querySelector(".phase__pick--player .icon__winner")
+            .classList.remove("hidden");
+        } else if (rps[i] === rps[1] && rps[randNum] === rps[0]) {
+          document.querySelector(".phase__status-text").textContent = "You win";
+          console.log("You win");
+          document
+            .querySelector(".phase__pick--player .icon__winner")
+            .classList.remove("hidden");
+        } else if (rps[i] === rps[1] && rps[randNum] === rps[2]) {
+          document.querySelector(".phase__status-text").textContent =
+            "You lose";
+          console.log("You lose");
+          document
+            .querySelector(".phase__pick--house .icon__winner")
+            .classList.remove("hidden");
+        } else if (rps[i] === rps[2] && rps[randNum] === rps[0]) {
+          document.querySelector(".phase__status-text").textContent =
+            "You lose";
+          console.log("You lose");
+          document
+            .querySelector(".phase__pick--house .icon__winner")
+            .classList.remove("hidden");
+        } else if (rps[i] === rps[2] && rps[randNum] === rps[1]) {
+          document.querySelector(".phase__status-text").textContent = "You win";
+          console.log("You win");
+          document
+            .querySelector(".phase__pick--player .icon__winner")
+            .classList.remove("hidden");
+        } else {
+          document.querySelector(".phase__status-text").textContent = "A tie";
+          console.log("A tie");
+        }
       }, 1000);
     }
   });
