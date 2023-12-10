@@ -2,6 +2,7 @@
 const classic = document.querySelectorAll(".phase--classic .icon");
 
 const rps = ["rock", "paper", "scissors"];
+let score = 10;
 
 for (let i = 0; i < classic.length; i++) {
   classic[i].addEventListener("click", (e) => {
@@ -46,18 +47,24 @@ for (let i = 0; i < classic.length; i++) {
           document
             .querySelector(".phase__pick--house .icon__winner")
             .classList.remove("hidden");
+          score--;
+          document.querySelector(".header__score").textContent = score;
         } else if (rps[i] === rps[0] && rps[randNum] === rps[2]) {
           document.querySelector(".phase__status-text").textContent = "You win";
           console.log("You win");
           document
             .querySelector(".phase__pick--player .icon__winner")
             .classList.remove("hidden");
+          score++;
+          document.querySelector(".header__score").textContent = score;
         } else if (rps[i] === rps[1] && rps[randNum] === rps[0]) {
           document.querySelector(".phase__status-text").textContent = "You win";
           console.log("You win");
           document
             .querySelector(".phase__pick--player .icon__winner")
             .classList.remove("hidden");
+          score++;
+          document.querySelector(".header__score").textContent = score;
         } else if (rps[i] === rps[1] && rps[randNum] === rps[2]) {
           document.querySelector(".phase__status-text").textContent =
             "You lose";
@@ -65,6 +72,8 @@ for (let i = 0; i < classic.length; i++) {
           document
             .querySelector(".phase__pick--house .icon__winner")
             .classList.remove("hidden");
+          score--;
+          document.querySelector(".header__score").textContent = score;
         } else if (rps[i] === rps[2] && rps[randNum] === rps[0]) {
           document.querySelector(".phase__status-text").textContent =
             "You lose";
@@ -72,12 +81,16 @@ for (let i = 0; i < classic.length; i++) {
           document
             .querySelector(".phase__pick--house .icon__winner")
             .classList.remove("hidden");
+          score--;
+          document.querySelector(".header__score").textContent = score;
         } else if (rps[i] === rps[2] && rps[randNum] === rps[1]) {
           document.querySelector(".phase__status-text").textContent = "You win";
           console.log("You win");
           document
             .querySelector(".phase__pick--player .icon__winner")
             .classList.remove("hidden");
+          score++;
+          document.querySelector(".header__score").textContent = score;
         } else {
           document.querySelector(".phase__status-text").textContent = "A tie";
           console.log("A tie");
@@ -86,5 +99,13 @@ for (let i = 0; i < classic.length; i++) {
     }
   });
 }
+
+// Play again
+document.querySelector(".btn--again").addEventListener("click", () => {
+  document.querySelector(".phase__pick .icon__winner").classList.add("hidden"); // fix by selecting all
+  document.querySelector(".phase--classic").classList.remove("hidden");
+  document.querySelector(".phase__comparism").classList.add("hidden");
+  document.querySelector(".phase__pick--house .icon").classList.add("hidden");
+});
 
 // const playerPick = () => {};
