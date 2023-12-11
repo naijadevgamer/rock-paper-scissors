@@ -102,10 +102,20 @@ for (let i = 0; i < classic.length; i++) {
 
 // Play again
 document.querySelector(".btn--again").addEventListener("click", () => {
-  document.querySelector(".phase__pick .icon__winner").classList.add("hidden"); // fix by selecting all
+  document.querySelectorAll(".phase__pick .icon__winner").forEach((e) => {
+    e.classList.add("hidden");
+  });
   document.querySelector(".phase--classic").classList.remove("hidden");
   document.querySelector(".phase__comparism").classList.add("hidden");
   document.querySelector(".phase__pick--house .icon").classList.add("hidden");
+  for (let i = 0; i < rps.length; i++) {
+    document.querySelectorAll(".phase__pick .icon").forEach((e) => {
+      e.classList.remove(`icon--${rps[i]}`);
+    });
+  }
+  document.querySelector(".phase__status").classList.add("hidden");
 });
 
-// const playerPick = () => {};
+// Show modal
+
+// Hide modal
