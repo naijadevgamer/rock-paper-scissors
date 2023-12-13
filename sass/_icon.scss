@@ -155,16 +155,15 @@
 .icon--large {
   position: relative;
   transform: translate(0, 0);
-  width: 25rem;
-  height: 25rem;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   right: 0;
-  // visibility: hidden;
-  @media only screen and (max-width: $bp-phone) {
-    height: 35vw;
-    width: 35vw;
-  }
+  // @media only screen and (max-width: $bp-phone) {
+  //   height: 35vw;
+  //   width: 35vw;
+  // }
   &::before {
     box-shadow: 0 -1rem 0 darken($color-white, 10%);
     @media only screen and (max-width: $bp-phone) {

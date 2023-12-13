@@ -41,10 +41,11 @@
   bottom: 5%;
   right: 5%;
   width: 13rem;
+
   @media only screen and (max-width: $bp-phone) {
     position: relative;
     left: 50%;
-    bottom: 0;
+    bottom: 5%;
     transform: translateX(-50%);
   }
 }
@@ -55,6 +56,9 @@
   width: 100%;
   margin-bottom: 1rem;
   display: block;
+  // border-radius: 5%;
+  // overflow: hidden;
+  // border: solid 1px $dark-text;
 
   &__item {
     padding: 1rem;
@@ -62,6 +66,7 @@
     font-size: 1.6rem;
     cursor: pointer;
     letter-spacing: 1.2px;
+    transition: all 0.3s ease;
     &:hover {
       background-color: $dark-text;
       color: $color-white;

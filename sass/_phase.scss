@@ -86,6 +86,8 @@
     height: 25rem;
     @media only screen and (max-width: $bp-phone) {
       margin-top: 0;
+      width: 35vw;
+      height: 35vw;
     }
   }
   // &--classic{

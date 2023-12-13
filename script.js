@@ -4,6 +4,7 @@ const classicIcons = document.querySelectorAll(".phase--classic .icon");
 const extendedIcons = document.querySelectorAll(".phase--extended .icon");
 const housePickIcon = document.querySelector(".phase__pick--house .icon");
 const phaseStatus = document.querySelector(".phase__status");
+const headerScore = document.querySelector(".header__score");
 
 // phases
 const classicPhase = document.querySelector(".phase--classic");
@@ -12,9 +13,8 @@ const comparismPhase = document.querySelector(".phase__comparism");
 
 const rps = ["rock", "paper", "scissors"];
 const rpsls = ["rock", "paper", "scissors", "lizard", "spock"];
-// localStorage.setItem("score", 10);
-// localStorage.getItem("username");
-let score = 10;
+let score = localStorage.getItem("score");
+score ? (headerScore.textContent = score) : (score = 10);
 
 // Classic icons functionality
 for (let i = 0; i < classicIcons.length; i++) {
@@ -99,5 +99,6 @@ function displayWinner(winner) {
   document
     .querySelector(`.phase__pick--${winner} .icon__winner`)
     .classList.remove("hidden");
-  document.querySelector(".header__score").textContent = score;
+  localStorage.setItem("score", score);
+  headerScore.textContent = score;
 }
