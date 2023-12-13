@@ -98,6 +98,12 @@ document.querySelector(".level").addEventListener("click", () => {
 document.querySelector(".option__item--rules").addEventListener("click", () => {
   document.querySelector(".modal-container").classList.remove("hidden");
 });
+document.querySelector(".modal__close").addEventListener("click", () => {
+  document.querySelector(".modal-container").classList.add("hidden");
+});
+// document.querySelector(".modal-container").addEventListener("click", () => {
+//   document.querySelector(".modal-container").classList.add("hidden");
+// });
 
 // Hide modal
 
