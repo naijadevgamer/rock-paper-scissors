@@ -8,6 +8,7 @@
   height: 100vh;
   width: 100vw;
   z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal {
@@ -21,6 +22,7 @@
   padding: 4rem;
   border-radius: 10px;
   align-items: center;
+
   @media only screen and (max-width: $bp-phone) {
     height: 100%;
     width: 100%;

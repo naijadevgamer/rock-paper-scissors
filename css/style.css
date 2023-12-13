@@ -529,7 +529,7 @@ body main {
   .option-box {
     position: relative;
     left: 50%;
-    bottom: 5%;
+    top: 5%;
     transform: translateX(-50%);
   }
 }
@@ -539,7 +539,8 @@ body main {
   color: hsl(229, 25%, 31%);
   width: 100%;
   margin-bottom: 1rem;
-  display: block;
+  border-radius: 6px;
+  backface-visibility: hidden;
 }
 .option__item {
   padding: 1rem;
@@ -549,23 +550,54 @@ body main {
   letter-spacing: 1.2px;
   transition: all 0.3s ease;
 }
-.option__item:hover {
-  background-color: hsl(229, 25%, 31%);
+.option__item--levels:hover, .option__item--rules:hover {
+  background-color: hsl(229, 64%, 46%);
   color: hsl(0, 0%, 100%);
 }
 .option__item--levels {
-  font-family: inherit;
-  color: inherit;
-  width: 100%;
-  border: none;
-  outline: none;
-  padding-left: 0.5rem;
+  border-top-right-radius: 4px;
+  border-top-left-radius: 4px;
+  position: relative;
+  border-bottom: 1px solid hsl(217, 16%, 45%);
 }
-.option__item--levels option {
-  background-color: hsl(0, 0%, 100%);
-  color: hsl(229, 25%, 31%);
+.option__item--rules {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
 }
 
+.level {
+  position: relative;
+}
+.level span {
+  position: absolute;
+  display: inline-block;
+  right: 0;
+  bottom: 50%;
+  transform: translateY(-20%);
+  font-size: 2rem;
+}
+.level__modal {
+  position: absolute;
+  z-index: 7;
+  width: 95%;
+  left: 50%;
+  top: 105%;
+  transform: translateX(-50%);
+  border: solid 3px hsl(229, 25%, 31%);
+}
+.level__item {
+  color: hsl(229, 25%, 31%);
+  background-color: #e6e6e6;
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
+}
+.level__item:hover {
+  background-color: hsl(229, 64%, 46%);
+  color: hsl(0, 0%, 100%);
+}
+.level__item--classic {
+  background-color: #bfbfbf;
+}
 .modal-container {
   display: flex;
   align-items: center;
@@ -576,6 +608,7 @@ body main {
   height: 100vh;
   width: 100vw;
   z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal {

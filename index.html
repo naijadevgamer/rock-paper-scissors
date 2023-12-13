@@ -55,7 +55,7 @@
           <img
             src="images/image-rules-bonus.svg"
             alt="rules img"
-            class="modal__rules modal__rules--extended"
+            class="modal__rules modal__rules--extended hidden"
           />
         </div>
       </div>
@@ -187,14 +187,17 @@
     </main>
 
     <div class="option-box">
-      <nav class="option">
-        <select class="option__item option__item--levels">
-          <option value="Classic" selected>Classic</option>
-          <option value="Extended">Extended</option>
-        </select>
-        <p class="option__item option__item--rules">rules</p>
-      </nav>
-      <button class="btn btn--option">Option</button>
+      <div class="option hidden">
+        <div class="option__item option__item--levels">
+          <div class="level">level</div>
+          <div class="level__modal hidden">
+            <div class="level__item level__item--classic">Classic</div>
+            <div class="level__item level__item--extended">Extended</div>
+          </div>
+        </div>
+        <div class="option__item option__item--rules">rules</div>
+      </div>
+      <button class="btn btn--option">Options</button>
     </div>
 
     <!-- <div class="attribution">

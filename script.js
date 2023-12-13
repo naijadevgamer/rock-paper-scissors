@@ -85,7 +85,19 @@ document.querySelector(".btn--again").addEventListener("click", () => {
   phaseStatus.classList.add("hidden");
 });
 
-// Show modal
+/// Show modal
+//
+document.querySelector(".btn--option").addEventListener("click", () => {
+  document.querySelector(".option").classList.toggle("hidden");
+});
+
+document.querySelector(".level").addEventListener("click", () => {
+  document.querySelector(".level__modal").classList.toggle("hidden");
+});
+
+document.querySelector(".option__item--rules").addEventListener("click", () => {
+  document.querySelector(".modal-container").classList.remove("hidden");
+});
 
 // Hide modal
 
