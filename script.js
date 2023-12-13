@@ -1,18 +1,30 @@
 "use strict";
-const classic = document.querySelectorAll(".phase--classic .icon");
+
+const classicIcons = document.querySelectorAll(".phase--classic .icon");
+const extendedIcons = document.querySelectorAll(".phase--extended .icon");
+const housePickIcon = document.querySelector(".phase__pick--house .icon");
+const phaseStatus = document.querySelector(".phase__status");
+
+// phases
+const classicPhase = document.querySelector(".phase--classic");
+const extendedPhase = document.querySelector(".phase--extended");
+const comparismPhase = document.querySelector(".phase__comparism");
 
 const rps = ["rock", "paper", "scissors"];
+const rpsls = ["rock", "paper", "scissors", "lizard", "spock"];
+// localStorage.setItem("score", 10);
+// localStorage.getItem("username");
 let score = 10;
 
-for (let i = 0; i < classic.length; i++) {
-  classic[i].addEventListener("click", (e) => {
+// Classic icons functionality
+for (let i = 0; i < classicIcons.length; i++) {
+  classicIcons[i].addEventListener("click", (e) => {
     const present = e.currentTarget.classList.contains(`icon--${rps[i]}`);
     const randNum = Math.floor(Math.random() * 3);
-    console.log(randNum);
     if (present) {
-      // Hide the choosing phase and show the next step
-      document.querySelector(".phase--classic").classList.add("hidden");
-      document.querySelector(".phase__comparism").classList.remove("hidden");
+      // Hide the classic phase and show the next step
+      classicPhase.classList.add("hidden");
+      comparismPhase.classList.remove("hidden");
 
       // show what the player picked
       document
@@ -24,12 +36,8 @@ for (let i = 0; i < classic.length; i++) {
 
       // show what the house picked
       setTimeout(() => {
-        document
-          .querySelector(".phase__pick--house .icon")
-          .classList.remove("hidden");
-        document
-          .querySelector(".phase__pick--house .icon")
-          .classList.add(`icon--${rps[randNum]}`);
+        housePickIcon.classList.remove("hidden");
+        housePickIcon.classList.add(`icon--${rps[randNum]}`);
         document.querySelector(
           ".phase__pick--house .icon__img"
         ).src = `images/icon-${rps[randNum]}.svg`;
@@ -38,62 +46,23 @@ for (let i = 0; i < classic.length; i++) {
         ).style.position = "absolute";
 
         // show the win or lose status
-        document.querySelector(".phase__status").classList.remove("hidden");
+        phaseStatus.classList.remove("hidden");
+
         // Compare the two picks
-        if (rps[i] === rps[0] && rps[randNum] === rps[1]) {
-          document.querySelector(".phase__status-text").textContent =
-            "You lose";
-          console.log("You lose");
-          document
-            .querySelector(".phase__pick--house .icon__winner")
-            .classList.remove("hidden");
+        if (rps[i] === rps[randNum]) {
+          displayStatusText("A tie");
+        } else if (
+          (rps[i] === rps[0] && rps[randNum] === rps[1]) ||
+          (rps[i] === rps[1] && rps[randNum] === rps[2]) ||
+          (rps[i] === rps[2] && rps[randNum] === rps[0])
+        ) {
+          displayStatusText("You lose");
           score--;
-          document.querySelector(".header__score").textContent = score;
-        } else if (rps[i] === rps[0] && rps[randNum] === rps[2]) {
-          document.querySelector(".phase__status-text").textContent = "You win";
-          console.log("You win");
-          document
-            .querySelector(".phase__pick--player .icon__winner")
-            .classList.remove("hidden");
-          score++;
-          document.querySelector(".header__score").textContent = score;
-        } else if (rps[i] === rps[1] && rps[randNum] === rps[0]) {
-          document.querySelector(".phase__status-text").textContent = "You win";
-          console.log("You win");
-          document
-            .querySelector(".phase__pick--player .icon__winner")
-            .classList.remove("hidden");
-          score++;
-          document.querySelector(".header__score").textContent = score;
-        } else if (rps[i] === rps[1] && rps[randNum] === rps[2]) {
-          document.querySelector(".phase__status-text").textContent =
-            "You lose";
-          console.log("You lose");
-          document
-            .querySelector(".phase__pick--house .icon__winner")
-            .classList.remove("hidden");
-          score--;
-          document.querySelector(".header__score").textContent = score;
-        } else if (rps[i] === rps[2] && rps[randNum] === rps[0]) {
-          document.querySelector(".phase__status-text").textContent =
-            "You lose";
-          console.log("You lose");
-          document
-            .querySelector(".phase__pick--house .icon__winner")
-            .classList.remove("hidden");
-          score--;
-          document.querySelector(".header__score").textContent = score;
-        } else if (rps[i] === rps[2] && rps[randNum] === rps[1]) {
-          document.querySelector(".phase__status-text").textContent = "You win";
-          console.log("You win");
-          document
-            .querySelector(".phase__pick--player .icon__winner")
-            .classList.remove("hidden");
-          score++;
-          document.querySelector(".header__score").textContent = score;
+          displayWinner("house");
         } else {
-          document.querySelector(".phase__status-text").textContent = "A tie";
-          console.log("A tie");
+          displayStatusText("You win");
+          score++;
+          displayWinner("player");
         }
       }, 1000);
     }
@@ -105,17 +74,30 @@ document.querySelector(".btn--again").addEventListener("click", () => {
   document.querySelectorAll(".phase__pick .icon__winner").forEach((e) => {
     e.classList.add("hidden");
   });
-  document.querySelector(".phase--classic").classList.remove("hidden");
-  document.querySelector(".phase__comparism").classList.add("hidden");
-  document.querySelector(".phase__pick--house .icon").classList.add("hidden");
+  classicPhase.classList.remove("hidden");
+  comparismPhase.classList.add("hidden");
+  housePickIcon.classList.add("hidden");
   for (let i = 0; i < rps.length; i++) {
     document.querySelectorAll(".phase__pick .icon").forEach((e) => {
       e.classList.remove(`icon--${rps[i]}`);
     });
   }
-  document.querySelector(".phase__status").classList.add("hidden");
+  phaseStatus.classList.add("hidden");
 });
 
 // Show modal
 
 // Hide modal
+
+// Display Win or lose status text
+function displayStatusText(text) {
+  document.querySelector(".phase__status-text").textContent = text;
+}
+
+// display winner
+function displayWinner(winner) {
+  document
+    .querySelector(`.phase__pick--${winner} .icon__winner`)
+    .classList.remove("hidden");
+  document.querySelector(".header__score").textContent = score;
+}

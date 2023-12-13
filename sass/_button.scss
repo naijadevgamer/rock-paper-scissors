@@ -9,24 +9,16 @@
   cursor: pointer;
   padding: 1rem;
 
-  &--rules {
+  &--option {
     background-color: transparent;
     color: $color-white;
-    width: 13rem;
+    width: 100%;
     display: block;
     border: solid 1.5px $color-white;
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
     box-shadow: $shadow-light;
     z-index: 6;
     border-radius: 8px;
-    @media only screen and (max-width: $bp-phone) {
-      position: relative;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-    }
+
     &:hover {
       background-color: $color-white;
       color: $dark-text;
@@ -40,6 +32,52 @@
     border: none;
     &:hover {
       color: $rock-h;
+    }
+  }
+}
+
+.option-box {
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 13rem;
+  @media only screen and (max-width: $bp-phone) {
+    position: relative;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+}
+
+.option {
+  background-color: $color-white;
+  color: $dark-text;
+  width: 100%;
+  margin-bottom: 1rem;
+  display: block;
+
+  &__item {
+    padding: 1rem;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    cursor: pointer;
+    letter-spacing: 1.2px;
+    &:hover {
+      background-color: $dark-text;
+      color: $color-white;
+    }
+
+    &--levels {
+      font-family: inherit;
+      color: inherit;
+      width: 100%;
+      border: none;
+      outline: none;
+      padding-left: 0.5rem;
+      option {
+        background-color: $color-white;
+        color: $dark-text;
+      }
     }
   }
 }
