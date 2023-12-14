@@ -37,7 +37,7 @@
       </div>
     </header>
 
-    <!-- Rules modal -->
+    <!-- modal -->
     <div class="modal-container hidden">
       <div class="modal">
         <h2 class="modal__heading">Rules</h2>
@@ -58,6 +58,12 @@
             class="modal__rules modal__rules--extended hidden"
           />
         </div>
+      </div>
+      <div class="modal__level-box">
+        <div class="modal__level modal__level--classic modal__level--active">
+          Classic
+        </div>
+        <div class="modal__level modal__level--extended">Extended</div>
       </div>
     </div>
 
@@ -186,15 +192,10 @@
       </div>
     </main>
 
+    <!-- Options button -->
     <div class="option-box">
       <div class="option hidden">
-        <div class="option__item option__item--levels">
-          <div class="level">level</div>
-          <div class="level__modal hidden">
-            <div class="level__item level__item--classic">Classic</div>
-            <div class="level__item level__item--extended">Extended</div>
-          </div>
-        </div>
+        <div class="option__item option__item--levels">level</div>
         <div class="option__item option__item--rules">rules</div>
       </div>
       <button class="btn btn--option">Options</button>

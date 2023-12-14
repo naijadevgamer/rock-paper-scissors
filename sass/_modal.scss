@@ -57,4 +57,32 @@
   &__rules {
     width: 100%;
   }
+
+  // Levels
+  &__level-box {
+    width: 25rem;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  &__level {
+    transition: all 0.3s ease;
+    color: $dark-text;
+    background-color: $color-white;
+    padding: 2rem 2rem;
+    font-size: 1.6rem;
+    &:hover {
+      background-color: $score-text;
+      color: $color-white;
+    }
+
+    // &--classic {
+    // }
+    // &--extended {
+    // }
+
+    &--active {
+      background-color: $paper-h;
+      color: $color-white;
+    }
+  }
 }

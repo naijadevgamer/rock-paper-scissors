@@ -91,21 +91,46 @@ document.querySelector(".btn--option").addEventListener("click", () => {
   document.querySelector(".option").classList.toggle("hidden");
 });
 
-document.querySelector(".level").addEventListener("click", () => {
-  document.querySelector(".level__modal").classList.toggle("hidden");
-});
+document
+  .querySelector(".option__item--levels")
+  .addEventListener("click", () => {
+    document.querySelector(".modal-container").classList.remove("hidden");
+    document.querySelector(".modal").classList.add("hidden");
+    document.querySelector(".modal__level-box").classList.remove("hidden");
+    document.querySelector(".option").classList.toggle("hidden");
+  });
 
 document.querySelector(".option__item--rules").addEventListener("click", () => {
   document.querySelector(".modal-container").classList.remove("hidden");
+  document.querySelector(".modal").classList.remove("hidden");
+  document.querySelector(".modal__level-box").classList.add("hidden");
+  document.querySelector(".option").classList.toggle("hidden");
 });
 document.querySelector(".modal__close").addEventListener("click", () => {
   document.querySelector(".modal-container").classList.add("hidden");
 });
-// document.querySelector(".modal-container").addEventListener("click", () => {
-//   document.querySelector(".modal-container").classList.add("hidden");
-// });
+document.querySelector(".modal-container").addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal-container"))
+    document.querySelector(".modal-container").classList.add("hidden");
+});
 
-// Hide modal
+// Extendend phase functionality
+document
+  .querySelector(".modal__level--extended")
+  .addEventListener("click", () => {
+    document
+      .querySelector(".header__logo--extended")
+      .classList.remove("hidden");
+    document.querySelector(".header__logo--classic").classList.add("hidden");
+    document
+      .querySelector(".modal__rules--extended")
+      .classList.remove("hidden");
+    document.querySelector(".modal__rules--classic").classList.add("hidden");
+
+    extendedPhase.classList.remove("hidden");
+    classicPhase.classList.add("hidden");
+    comparismPhase.classList.add("hidden");
+  });
 
 // Display Win or lose status text
 function displayStatusText(text) {
