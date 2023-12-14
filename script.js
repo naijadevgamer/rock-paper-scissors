@@ -16,7 +16,7 @@ const rpsls = ["rock", "paper", "scissors", "lizard", "spock"];
 let score = localStorage.getItem("score");
 score ? (headerScore.textContent = score) : (score = 10);
 
-// Classic icons functionality
+// Classic level functionality
 for (let i = 0; i < classicIcons.length; i++) {
   classicIcons[i].addEventListener("click", (e) => {
     const present = e.currentTarget.classList.contains(`icon--${rps[i]}`);
@@ -69,12 +69,78 @@ for (let i = 0; i < classicIcons.length; i++) {
   });
 }
 
+// Extended level functionality
+for (let i = 0; i < extendedIcons.length; i++) {
+  extendedIcons[i].addEventListener("click", (e) => {
+    const present = e.currentTarget.classList.contains(`icon--${rpsls[i]}`);
+    const randNum = Math.floor(Math.random() * 5);
+    if (present) {
+      // Hide the extended phase and show the next step
+      extendedPhase.classList.add("hidden");
+      comparismPhase.classList.remove("hidden");
+
+      // show what the player picked
+      document
+        .querySelector(".phase__pick--player .icon")
+        .classList.add(`icon--${rpsls[i]}`);
+      document.querySelector(
+        ".phase__pick--player .icon__img"
+      ).src = `images/icon-${rpsls[i]}.svg`;
+
+      // show what the house picked
+      setTimeout(() => {
+        housePickIcon.classList.remove("hidden");
+        housePickIcon.classList.add(`icon--${rpsls[randNum]}`);
+        document.querySelector(
+          ".phase__pick--house .icon__img"
+        ).src = `images/icon-${rpsls[randNum]}.svg`;
+        document.querySelector(
+          ".phase__pick--house .icon__under"
+        ).style.position = "absolute";
+
+        // show the win or lose status
+        phaseStatus.classList.remove("hidden");
+
+        // Compare the two picks
+        if (rpsls[i] === rpsls[randNum]) {
+          displayStatusText("It's a tie");
+        } else if (
+          (rpsls[i] === rpsls[0] && rpsls[randNum] === rpsls[1]) ||
+          (rpsls[i] === rpsls[0] && rpsls[randNum] === rpsls[4]) ||
+          (rpsls[i] === rpsls[1] && rpsls[randNum] === rpsls[2]) ||
+          (rpsls[i] === rpsls[1] && rpsls[randNum] === rpsls[3]) ||
+          (rpsls[i] === rpsls[2] && rpsls[randNum] === rpsls[4]) ||
+          (rpsls[i] === rpsls[2] && rpsls[randNum] === rpsls[0]) ||
+          (rpsls[i] === rpsls[3] && rpsls[randNum] === rpsls[0]) ||
+          (rpsls[i] === rpsls[3] && rpsls[randNum] === rpsls[2]) ||
+          (rpsls[i] === rpsls[4] && rpsls[randNum] === rpsls[3]) ||
+          (rpsls[i] === rpsls[4] && rpsls[randNum] === rpsls[1])
+        ) {
+          displayStatusText("You lose");
+          score--;
+          displayWinner("house");
+        } else {
+          displayStatusText("You win");
+          score++;
+          displayWinner("player");
+        }
+      }, 1000);
+    }
+  });
+}
+
 // Play again
 document.querySelector(".btn--again").addEventListener("click", () => {
   document.querySelectorAll(".phase__pick .icon__winner").forEach((e) => {
     e.classList.add("hidden");
   });
-  classicPhase.classList.remove("hidden");
+  const present = document
+    .querySelector(".modal__level--classic")
+    .classList.contains("modal__level--active");
+  present
+    ? classicPhase.classList.remove("hidden")
+    : extendedPhase.classList.remove("hidden");
+
   comparismPhase.classList.add("hidden");
   housePickIcon.classList.add("hidden");
   for (let i = 0; i < rps.length; i++) {
@@ -82,11 +148,15 @@ document.querySelector(".btn--again").addEventListener("click", () => {
       e.classList.remove(`icon--${rps[i]}`);
     });
   }
+  for (let i = 0; i < rpsls.length; i++) {
+    document.querySelectorAll(".phase__pick .icon").forEach((e) => {
+      e.classList.remove(`icon--${rpsls[i]}`);
+    });
+  }
   phaseStatus.classList.add("hidden");
 });
 
-/// Show modal
-//
+/// Show modal functionalities
 document.querySelector(".btn--option").addEventListener("click", () => {
   document.querySelector(".option").classList.toggle("hidden");
 });
@@ -114,10 +184,16 @@ document.querySelector(".modal-container").addEventListener("click", (e) => {
     document.querySelector(".modal-container").classList.add("hidden");
 });
 
-// Extendend phase functionality
+// Extendend level pointer
 document
   .querySelector(".modal__level--extended")
   .addEventListener("click", () => {
+    document
+      .querySelector(".modal__level--extended")
+      .classList.add("modal__level--active");
+    document
+      .querySelector(".modal__level--classic")
+      .classList.remove("modal__level--active");
     document
       .querySelector(".header__logo--extended")
       .classList.remove("hidden");
@@ -129,6 +205,27 @@ document
 
     extendedPhase.classList.remove("hidden");
     classicPhase.classList.add("hidden");
+    comparismPhase.classList.add("hidden");
+  });
+
+// classic level pointer
+document
+  .querySelector(".modal__level--classic")
+  .addEventListener("click", () => {
+    document
+      .querySelector(".modal__level--classic")
+      .classList.add("modal__level--active");
+    document
+      .querySelector(".modal__level--extended")
+      .classList.remove("modal__level--active");
+
+    document.querySelector(".header__logo--classic").classList.remove("hidden");
+    document.querySelector(".header__logo--extended").classList.add("hidden");
+    document.querySelector(".modal__rules--classic").classList.remove("hidden");
+    document.querySelector(".modal__rules--extended").classList.add("hidden");
+
+    extendedPhase.classList.add("hidden");
+    classicPhase.classList.remove("hidden");
     comparismPhase.classList.add("hidden");
   });
 

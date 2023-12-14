@@ -160,10 +160,7 @@
   top: 0;
   left: 0;
   right: 0;
-  // @media only screen and (max-width: $bp-phone) {
-  //   height: 35vw;
-  //   width: 35vw;
-  // }
+
   &::before {
     box-shadow: 0 -1rem 0 darken($color-white, 10%);
     @media only screen and (max-width: $bp-phone) {
@@ -205,6 +202,26 @@
   }
   &:active {
     box-shadow: 0 0 0 $rock-h;
+  }
+}
+
+.icon--large.icon--lizard {
+  box-shadow: 0 1rem 0 $lizard-h;
+  @media only screen and (max-width: $bp-phone) {
+    box-shadow: 0 5px 0 $lizard-h;
+  }
+  &:active {
+    box-shadow: 0 0 0 $lizard-h;
+  }
+}
+
+.icon--large.icon--spock {
+  box-shadow: 0 1rem 0 $spock-h;
+  @media only screen and (max-width: $bp-phone) {
+    box-shadow: 0 5px 0 $spock-h;
+  }
+  &:active {
+    box-shadow: 0 0 0 $spock-h;
   }
 }
 

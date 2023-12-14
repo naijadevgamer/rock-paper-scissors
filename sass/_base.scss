@@ -78,12 +78,10 @@ body {
   min-height: 100vh;
   color: $color-white;
   text-transform: uppercase;
-  // -webkit-font-smoothing: antialiased;
-  // -moz-osx-font-smoothing: grayscale;
   padding: 0 2.5rem;
   padding-bottom: 3rem;
   font-weight: 600;
-  overflow: hidden;
+  overflow-x: hidden;
   position: relative;
   main {
     // margin-bottom: 15rem;
@@ -95,7 +93,7 @@ body {
   color: $dark-text;
 }
 
-// Some js id
+// Main js style
 .hidden {
   display: none !important;
 }
