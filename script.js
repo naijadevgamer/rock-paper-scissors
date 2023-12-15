@@ -50,7 +50,7 @@ for (let i = 0; i < classicIcons.length; i++) {
 
         // Compare the two picks
         if (rps[i] === rps[randNum]) {
-          displayStatusText("A tie");
+          displayStatusText("It's a tie");
         } else if (
           (rps[i] === rps[0] && rps[randNum] === rps[1]) ||
           (rps[i] === rps[1] && rps[randNum] === rps[2]) ||
@@ -129,38 +129,16 @@ for (let i = 0; i < extendedIcons.length; i++) {
   });
 }
 
-// Play again
-document.querySelector(".btn--again").addEventListener("click", () => {
-  document.querySelectorAll(".phase__pick .icon__winner").forEach((e) => {
-    e.classList.add("hidden");
-  });
-  const present = document
-    .querySelector(".modal__level--classic")
-    .classList.contains("modal__level--active");
-  present
-    ? classicPhase.classList.remove("hidden")
-    : extendedPhase.classList.remove("hidden");
-
-  comparismPhase.classList.add("hidden");
-  housePickIcon.classList.add("hidden");
-  for (let i = 0; i < rps.length; i++) {
-    document.querySelectorAll(".phase__pick .icon").forEach((e) => {
-      e.classList.remove(`icon--${rps[i]}`);
-    });
-  }
-  for (let i = 0; i < rpsls.length; i++) {
-    document.querySelectorAll(".phase__pick .icon").forEach((e) => {
-      e.classList.remove(`icon--${rpsls[i]}`);
-    });
-  }
-  phaseStatus.classList.add("hidden");
-});
+// Play again functionality
+document.querySelector(".btn--again").addEventListener("click", playAgain);
 
 /// Show modal functionalities
+// toggle option button
 document.querySelector(".btn--option").addEventListener("click", () => {
   document.querySelector(".option").classList.toggle("hidden");
 });
 
+// show levels
 document
   .querySelector(".option__item--levels")
   .addEventListener("click", () => {
@@ -170,12 +148,15 @@ document
     document.querySelector(".option").classList.toggle("hidden");
   });
 
+// show rules modal
 document.querySelector(".option__item--rules").addEventListener("click", () => {
   document.querySelector(".modal-container").classList.remove("hidden");
   document.querySelector(".modal").classList.remove("hidden");
   document.querySelector(".modal__level-box").classList.add("hidden");
   document.querySelector(".option").classList.toggle("hidden");
 });
+
+// close rules modal
 document.querySelector(".modal__close").addEventListener("click", () => {
   document.querySelector(".modal-container").classList.add("hidden");
 });
@@ -184,7 +165,7 @@ document.querySelector(".modal-container").addEventListener("click", (e) => {
     document.querySelector(".modal-container").classList.add("hidden");
 });
 
-// Extendend level pointer
+// Extendend level switch
 document
   .querySelector(".modal__level--extended")
   .addEventListener("click", () => {
@@ -202,13 +183,12 @@ document
       .querySelector(".modal__rules--extended")
       .classList.remove("hidden");
     document.querySelector(".modal__rules--classic").classList.add("hidden");
-
-    extendedPhase.classList.remove("hidden");
+    document.querySelector(".modal-container").classList.add("hidden");
+    playAgain();
     classicPhase.classList.add("hidden");
-    comparismPhase.classList.add("hidden");
   });
 
-// classic level pointer
+// classic level switch
 document
   .querySelector(".modal__level--classic")
   .addEventListener("click", () => {
@@ -223,10 +203,9 @@ document
     document.querySelector(".header__logo--extended").classList.add("hidden");
     document.querySelector(".modal__rules--classic").classList.remove("hidden");
     document.querySelector(".modal__rules--extended").classList.add("hidden");
-
+    document.querySelector(".modal-container").classList.add("hidden");
+    playAgain();
     extendedPhase.classList.add("hidden");
-    classicPhase.classList.remove("hidden");
-    comparismPhase.classList.add("hidden");
   });
 
 // Display Win or lose status text
@@ -241,4 +220,36 @@ function displayWinner(winner) {
     .classList.remove("hidden");
   localStorage.setItem("score", score);
   headerScore.textContent = score;
+}
+
+// play again
+function playAgain() {
+  // Hide the winner display
+  document.querySelectorAll(".phase__pick .icon__winner").forEach((e) => {
+    e.classList.add("hidden");
+  });
+  // check if active then show the active phase
+  const present = document
+    .querySelector(".modal__level--classic")
+    .classList.contains("modal__level--active");
+  present
+    ? classicPhase.classList.remove("hidden")
+    : extendedPhase.classList.remove("hidden");
+
+  // Hide house icon an other phases
+  comparismPhase.classList.add("hidden");
+  housePickIcon.classList.add("hidden");
+  phaseStatus.classList.add("hidden");
+
+  // remove all classes of icons from the player and house pick
+  for (let i = 0; i < rps.length; i++) {
+    document.querySelectorAll(".phase__pick .icon").forEach((e) => {
+      e.classList.remove(`icon--${rps[i]}`);
+    });
+  }
+  for (let i = 0; i < rpsls.length; i++) {
+    document.querySelectorAll(".phase__pick .icon").forEach((e) => {
+      e.classList.remove(`icon--${rpsls[i]}`);
+    });
+  }
 }
