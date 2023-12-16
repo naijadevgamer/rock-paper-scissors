@@ -1,20 +1,135 @@
 "use strict";
 
-const classicIcons = document.querySelectorAll(".phase--classic .icon");
-const extendedIcons = document.querySelectorAll(".phase--extended .icon");
-const housePickIcon = document.querySelector(".phase__pick--house .icon");
-const phaseStatus = document.querySelector(".phase__status");
-const headerScore = document.querySelector(".header__score");
+// Query Selectors
+const getElement = (selector) => document.querySelector(selector);
+const getAllElements = (selector) => document.querySelectorAll(selector);
 
-// phases
-const classicPhase = document.querySelector(".phase--classic");
-const extendedPhase = document.querySelector(".phase--extended");
-const comparismPhase = document.querySelector(".phase__comparism");
+// Phases
+const classicPhase = getElement(".phase--classic");
+const extendedPhase = getElement(".phase--extended");
+const comparismPhase = getElement(".phase__comparism");
 
+// Others
+const classicIcons = getAllElements(".phase--classic .icon");
+const extendedIcons = getAllElements(".phase--extended .icon");
+const playerPickIcon = getElement(".phase__pick--player .icon");
+const housePickIcon = getElement(".phase__pick--house .icon");
+const phaseStatus = getElement(".phase__status");
+const headerScore = getElement(".header__score");
+
+// Game Options
 const rps = ["rock", "paper", "scissors"];
 const rpsls = ["rock", "paper", "scissors", "lizard", "spock"];
-let score = localStorage.getItem("score");
-score ? (headerScore.textContent = score) : (score = 10);
+let score = localStorage.getItem("score") || 10;
+headerScore.textContent = score;
+
+// Function to get a random number
+const getRandomNumber = (max) => Math.floor(Math.random() * max);
+
+// Function to display status text
+const displayStatusText = (text) => {
+  getElement(".phase__status-text").textContent = text;
+};
+
+// Function to display winner
+const displayWinner = (winner) => {
+  const winnerElement = getElement(`.phase__pick--${winner} .icon__winner`);
+  winnerElement.classList.remove("hidden");
+  localStorage.setItem("score", score);
+  headerScore.textContent = score;
+};
+
+// Function to play again
+const playAgain = () => {
+  // Hide the winner display
+  getAllElements(".phase__pick .icon__winner").forEach((e) =>
+    e.classList.add("hidden")
+  );
+
+  // Check if active then show the active phase
+  const activePhase = document
+    .querySelector(".modal__level--classic")
+    .classList.contains("modal__level--active")
+    ? classicPhase
+    : extendedPhase;
+  activePhase.classList.remove("hidden");
+
+  comparismPhase.classList.add("hidden");
+  housePickIcon.classList.add("hidden");
+  phaseStatus.classList.add("hidden");
+
+  // Remove all icons modifier from the player and house icons
+  const picks = activePhase === classicPhase ? rps : rpsls;
+  picks.forEach((pick) => {
+    getAllElements(".phase__pick .icon").forEach((e) =>
+      e.classList.remove(`icon--${pick}`)
+    );
+  });
+};
+
+// Function to handle player pick
+const handlePlayerPick = (icons, choices) => {
+  for (let i = 0; i < icons.length; i++) {
+    icons[i].addEventListener("click", (e) => {
+      const present = e.currentTarget.classList.contains(`icon--${choices[i]}`);
+      const randNum = getRandomNumber(choices.length);
+      if (present) {
+        const currentPhase = choices === rps ? classicPhase : extendedPhase;
+        // Hide the current phase and show the next step
+        currentPhase.classList.add("hidden");
+        comparismPhase.classList.remove("hidden");
+
+        // Show what the player picked
+        playerPickIcon.classList.add(`icon--${choices[i]}`);
+        playerPickIcon.querySelector(
+          ".icon__img"
+        ).src = `images/icon-${choices[i]}.svg`;
+
+        // Show what the house picked
+        setTimeout(() => {
+          housePickIcon.classList.remove("hidden");
+          housePickIcon.classList.add(`icon--${choices[randNum]}`);
+          housePickIcon.querySelector(
+            ".icon__img"
+          ).src = `images/icon-${choices[randNum]}.svg`;
+          housePickIcon.querySelector(".icon__under").style.position =
+            "absolute";
+          phaseStatus.classList.remove("hidden");
+
+          if (choices[i] === choices[randNum]) {
+            displayStatusText("It's a tie");
+          } else {
+            const winConditions = [
+              [0, 1],
+              [0, 3],
+              [1, 2],
+              [1, 4],
+              [2, 3],
+              [2, 0],
+              [3, 0],
+              [3, 2],
+              [4, 3],
+              [4, 1],
+            ];
+            const isWin = winConditions.some(
+              ([a, b]) =>
+                choices[i] === choices[a] && choices[randNum] === choices[b]
+            );
+            if (isWin) {
+              displayStatusText("You win");
+              score++;
+              displayWinner("player");
+            } else {
+              displayStatusText("You lose");
+              score--;
+              displayWinner("house");
+            }
+          }
+        }, 1000);
+      }
+    });
+  }
+};
 
 // Classic level functionality
 for (let i = 0; i < classicIcons.length; i++) {
@@ -223,33 +338,28 @@ function displayWinner(winner) {
 }
 
 // play again
-function playAgain() {
-  // Hide the winner display
-  document.querySelectorAll(".phase__pick .icon__winner").forEach((e) => {
-    e.classList.add("hidden");
-  });
-  // check if active then show the active phase
-  const present = document
-    .querySelector(".modal__level--classic")
-    .classList.contains("modal__level--active");
-  present
-    ? classicPhase.classList.remove("hidden")
-    : extendedPhase.classList.remove("hidden");
+// function playAgain() {
+//   // Hide the winner display
+//   document.querySelectorAll(".phase__pick .icon__winner").forEach((e) => {
+//     e.classList.add("hidden");
+//   });
+//   // check if active then show the active phase
+//   const present = document
+//     .querySelector(".modal__level--classic")
+//     .classList.contains("modal__level--active");
+//   present
+//     ? classicPhase.classList.remove("hidden")
+//     : extendedPhase.classList.remove("hidden");
 
-  // Hide house icon an other phases
-  comparismPhase.classList.add("hidden");
-  housePickIcon.classList.add("hidden");
-  phaseStatus.classList.add("hidden");
+//   // Hide house icon an other phases
+//   comparismPhase.classList.add("hidden");
+//   housePickIcon.classList.add("hidden");
+//   phaseStatus.classList.add("hidden");
 
-  // remove all classes of icons from the player and house pick
-  for (let i = 0; i < rps.length; i++) {
-    document.querySelectorAll(".phase__pick .icon").forEach((e) => {
-      e.classList.remove(`icon--${rps[i]}`);
-    });
-  }
-  for (let i = 0; i < rpsls.length; i++) {
-    document.querySelectorAll(".phase__pick .icon").forEach((e) => {
-      e.classList.remove(`icon--${rpsls[i]}`);
-    });
-  }
-}
+//   // remove all classes of icons from the player and house pick
+//   for (let i = 0; i < rps.length; i++) {
+//     document.querySelectorAll(".phase__pick .icon").forEach((e) => {
+//       e.classList.remove(`icon--${rps[i]}`);
+//     });
+//   }
+// }
