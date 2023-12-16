@@ -96,20 +96,21 @@ const handlePlayerPick = (icons, choices) => {
             "absolute";
           phaseStatus.classList.remove("hidden");
 
+          // Compare the two picks
           if (choices[i] === choices[randNum]) {
             displayStatusText("It's a tie");
           } else {
             const winConditions = [
-              [0, 1],
+              [0, 2],
               [0, 3],
-              [1, 2],
+              [1, 0],
               [1, 4],
+              [2, 1],
               [2, 3],
-              [2, 0],
-              [3, 0],
-              [3, 2],
+              [3, 1],
+              [3, 4],
               [4, 3],
-              [4, 1],
+              [4, 0],
             ];
             const isWin = winConditions.some(
               ([a, b]) =>
@@ -131,118 +132,118 @@ const handlePlayerPick = (icons, choices) => {
   }
 };
 
-// Classic level functionality
-for (let i = 0; i < classicIcons.length; i++) {
-  classicIcons[i].addEventListener("click", (e) => {
-    const present = e.currentTarget.classList.contains(`icon--${rps[i]}`);
-    const randNum = Math.floor(Math.random() * 3);
-    if (present) {
-      // Hide the classic phase and show the next step
-      classicPhase.classList.add("hidden");
-      comparismPhase.classList.remove("hidden");
+// // Classic level functionality
+// for (let i = 0; i < classicIcons.length; i++) {
+//   classicIcons[i].addEventListener("click", (e) => {
+//     const present = e.currentTarget.classList.contains(`icon--${rps[i]}`);
+//     const randNum = Math.floor(Math.random() * 3);
+//     if (present) {
+//       // Hide the classic phase and show the next step
+//       classicPhase.classList.add("hidden");
+//       comparismPhase.classList.remove("hidden");
 
-      // show what the player picked
-      document
-        .querySelector(".phase__pick--player .icon")
-        .classList.add(`icon--${rps[i]}`);
-      document.querySelector(
-        ".phase__pick--player .icon__img"
-      ).src = `images/icon-${rps[i]}.svg`;
+//       // show what the player picked
+//       document
+//         .querySelector(".phase__pick--player .icon")
+//         .classList.add(`icon--${rps[i]}`);
+//       document.querySelector(
+//         ".phase__pick--player .icon__img"
+//       ).src = `images/icon-${rps[i]}.svg`;
 
-      // show what the house picked
-      setTimeout(() => {
-        housePickIcon.classList.remove("hidden");
-        housePickIcon.classList.add(`icon--${rps[randNum]}`);
-        document.querySelector(
-          ".phase__pick--house .icon__img"
-        ).src = `images/icon-${rps[randNum]}.svg`;
-        document.querySelector(
-          ".phase__pick--house .icon__under"
-        ).style.position = "absolute";
+//       // show what the house picked
+//       setTimeout(() => {
+//         housePickIcon.classList.remove("hidden");
+//         housePickIcon.classList.add(`icon--${rps[randNum]}`);
+//         document.querySelector(
+//           ".phase__pick--house .icon__img"
+//         ).src = `images/icon-${rps[randNum]}.svg`;
+//         document.querySelector(
+//           ".phase__pick--house .icon__under"
+//         ).style.position = "absolute";
 
-        // show the win or lose status
-        phaseStatus.classList.remove("hidden");
+//         // show the win or lose status
+//         phaseStatus.classList.remove("hidden");
 
-        // Compare the two picks
-        if (rps[i] === rps[randNum]) {
-          displayStatusText("It's a tie");
-        } else if (
-          (rps[i] === rps[0] && rps[randNum] === rps[1]) ||
-          (rps[i] === rps[1] && rps[randNum] === rps[2]) ||
-          (rps[i] === rps[2] && rps[randNum] === rps[0])
-        ) {
-          displayStatusText("You lose");
-          score--;
-          displayWinner("house");
-        } else {
-          displayStatusText("You win");
-          score++;
-          displayWinner("player");
-        }
-      }, 1000);
-    }
-  });
-}
+//         // Compare the two picks
+//         if (rps[i] === rps[randNum]) {
+//           displayStatusText("It's a tie");
+//         } else if (
+//           (rps[i] === rps[0] && rps[randNum] === rps[1]) ||
+//           (rps[i] === rps[1] && rps[randNum] === rps[2]) ||
+//           (rps[i] === rps[2] && rps[randNum] === rps[0])
+//         ) {
+//           displayStatusText("You lose");
+//           score--;
+//           displayWinner("house");
+//         } else {
+//           displayStatusText("You win");
+//           score++;
+//           displayWinner("player");
+//         }
+//       }, 1000);
+//     }
+//   });
+// }
 
-// Extended level functionality
-for (let i = 0; i < extendedIcons.length; i++) {
-  extendedIcons[i].addEventListener("click", (e) => {
-    const present = e.currentTarget.classList.contains(`icon--${rpsls[i]}`);
-    const randNum = Math.floor(Math.random() * 5);
-    if (present) {
-      // Hide the extended phase and show the next step
-      extendedPhase.classList.add("hidden");
-      comparismPhase.classList.remove("hidden");
+// // Extended level functionality
+// for (let i = 0; i < extendedIcons.length; i++) {
+//   extendedIcons[i].addEventListener("click", (e) => {
+//     const present = e.currentTarget.classList.contains(`icon--${rpsls[i]}`);
+//     const randNum = Math.floor(Math.random() * 5);
+//     if (present) {
+//       // Hide the extended phase and show the next step
+//       extendedPhase.classList.add("hidden");
+//       comparismPhase.classList.remove("hidden");
 
-      // show what the player picked
-      document
-        .querySelector(".phase__pick--player .icon")
-        .classList.add(`icon--${rpsls[i]}`);
-      document.querySelector(
-        ".phase__pick--player .icon__img"
-      ).src = `images/icon-${rpsls[i]}.svg`;
+//       // show what the player picked
+//       document
+//         .querySelector(".phase__pick--player .icon")
+//         .classList.add(`icon--${rpsls[i]}`);
+//       document.querySelector(
+//         ".phase__pick--player .icon__img"
+//       ).src = `images/icon-${rpsls[i]}.svg`;
 
-      // show what the house picked
-      setTimeout(() => {
-        housePickIcon.classList.remove("hidden");
-        housePickIcon.classList.add(`icon--${rpsls[randNum]}`);
-        document.querySelector(
-          ".phase__pick--house .icon__img"
-        ).src = `images/icon-${rpsls[randNum]}.svg`;
-        document.querySelector(
-          ".phase__pick--house .icon__under"
-        ).style.position = "absolute";
+//       // show what the house picked
+//       setTimeout(() => {
+//         housePickIcon.classList.remove("hidden");
+//         housePickIcon.classList.add(`icon--${rpsls[randNum]}`);
+//         document.querySelector(
+//           ".phase__pick--house .icon__img"
+//         ).src = `images/icon-${rpsls[randNum]}.svg`;
+//         document.querySelector(
+//           ".phase__pick--house .icon__under"
+//         ).style.position = "absolute";
 
-        // show the win or lose status
-        phaseStatus.classList.remove("hidden");
+//         // show the win or lose status
+//         phaseStatus.classList.remove("hidden");
 
-        // Compare the two picks
-        if (rpsls[i] === rpsls[randNum]) {
-          displayStatusText("It's a tie");
-        } else if (
-          (rpsls[i] === rpsls[0] && rpsls[randNum] === rpsls[1]) ||
-          (rpsls[i] === rpsls[0] && rpsls[randNum] === rpsls[4]) ||
-          (rpsls[i] === rpsls[1] && rpsls[randNum] === rpsls[2]) ||
-          (rpsls[i] === rpsls[1] && rpsls[randNum] === rpsls[3]) ||
-          (rpsls[i] === rpsls[2] && rpsls[randNum] === rpsls[4]) ||
-          (rpsls[i] === rpsls[2] && rpsls[randNum] === rpsls[0]) ||
-          (rpsls[i] === rpsls[3] && rpsls[randNum] === rpsls[0]) ||
-          (rpsls[i] === rpsls[3] && rpsls[randNum] === rpsls[2]) ||
-          (rpsls[i] === rpsls[4] && rpsls[randNum] === rpsls[3]) ||
-          (rpsls[i] === rpsls[4] && rpsls[randNum] === rpsls[1])
-        ) {
-          displayStatusText("You lose");
-          score--;
-          displayWinner("house");
-        } else {
-          displayStatusText("You win");
-          score++;
-          displayWinner("player");
-        }
-      }, 1000);
-    }
-  });
-}
+//         // Compare the two picks
+//         if (rpsls[i] === rpsls[randNum]) {
+//           displayStatusText("It's a tie");
+//         } else if (
+//           (rpsls[i] === rpsls[0] && rpsls[randNum] === rpsls[1]) ||
+//           (rpsls[i] === rpsls[0] && rpsls[randNum] === rpsls[4]) ||
+//           (rpsls[i] === rpsls[1] && rpsls[randNum] === rpsls[2]) ||
+//           (rpsls[i] === rpsls[1] && rpsls[randNum] === rpsls[3]) ||
+//           (rpsls[i] === rpsls[2] && rpsls[randNum] === rpsls[4]) ||
+//           (rpsls[i] === rpsls[2] && rpsls[randNum] === rpsls[0]) ||
+//           (rpsls[i] === rpsls[3] && rpsls[randNum] === rpsls[0]) ||
+//           (rpsls[i] === rpsls[3] && rpsls[randNum] === rpsls[2]) ||
+//           (rpsls[i] === rpsls[4] && rpsls[randNum] === rpsls[3]) ||
+//           (rpsls[i] === rpsls[4] && rpsls[randNum] === rpsls[1])
+//         ) {
+//           displayStatusText("You lose");
+//           score--;
+//           displayWinner("house");
+//         } else {
+//           displayStatusText("You win");
+//           score++;
+//           displayWinner("player");
+//         }
+//       }, 1000);
+//     }
+//   });
+// }
 
 // Play again functionality
 document.querySelector(".btn--again").addEventListener("click", playAgain);
