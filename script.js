@@ -169,6 +169,8 @@ const switchLevel = (level) => {
       "modal__level--active"
     );
 
+    getElement(`.phase--${levels[1]}`).classList.add("hidden");
+
     getElement(`.header__logo--${levels[0]}`).classList.remove("hidden");
     getElement(`.header__logo--${levels[1]}`).classList.add("hidden");
     getElement(`.modal__rules--${levels[0]}`).classList.remove("hidden");

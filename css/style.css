@@ -62,14 +62,11 @@ body main {
   padding: 2rem;
   border: solid 4px hsl(217, 16%, 45%);
   border-radius: 15px;
-  font-weight: 600;
-  text-transform: uppercase;
 }
 @media only screen and (max-width: 37.5em) {
   .header {
     padding: 1.5rem;
     margin: 4rem auto;
-    margin-bottom: 6rem;
   }
 }
 .header__logo-box img {
@@ -115,13 +112,15 @@ body main {
   font-weight: 700;
 }
 
+.phase {
+  margin: 15rem 0;
+}
 .phase__play {
   display: inline-block;
   position: relative;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  margin-top: 10rem;
 }
 .phase__bg {
   height: 20rem;
@@ -144,6 +143,7 @@ body main {
   width: 90rem;
   max-width: 100%;
   margin: 0 auto;
+  margin-bottom: 15rem;
   gap: 6rem;
 }
 @media only screen and (max-width: 56.25em) {
@@ -230,9 +230,6 @@ body main {
     height: 47vw;
     width: 50vw;
   }
-}
-.phase--extended .phase__play {
-  margin-top: 7rem;
 }
 
 .icon {
@@ -507,8 +504,8 @@ body main {
 
 .btn {
   border-radius: 5px;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: inherit;
+  text-transform: inherit;
   transition: all 0.3s ease;
   font-size: 1.6rem;
   font-family: inherit;
@@ -549,9 +546,9 @@ body main {
 }
 @media only screen and (max-width: 37.5em) {
   .option-box {
-    position: relative;
+    position: absolute;
     left: 50%;
-    top: 5%;
+    bottom: 5%;
     transform: translateX(-50%);
   }
 }
@@ -579,6 +576,7 @@ body main {
 .option__item--levels {
   border-bottom: 1px solid hsl(217, 16%, 45%);
 }
+
 .modal-container {
   display: flex;
   align-items: center;

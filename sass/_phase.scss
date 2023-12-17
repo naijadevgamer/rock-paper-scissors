@@ -1,4 +1,5 @@
 .phase {
+  margin: 15rem 0;
   // Playground or choosing phase
   &__play {
     display: inline-block;
@@ -6,7 +7,6 @@
     top: 0;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 10rem;
   }
   &__bg {
     height: 20rem;
@@ -29,6 +29,7 @@
     width: 90rem;
     max-width: 100%;
     margin: 0 auto;
+    margin-bottom: 15rem;
     gap: 6rem;
     @media only screen and (max-width: $bp-tab-port) {
       flex-wrap: wrap;
@@ -90,8 +91,6 @@
       height: 35vw;
     }
   }
-  // &--classic{
-  // }
 }
 
 .phase--extended {
@@ -104,9 +103,6 @@
         height: 47vw;
         width: 50vw;
       }
-    }
-    &__play {
-      margin-top: 7rem;
     }
   }
 }

@@ -1,7 +1,7 @@
 .btn {
   border-radius: 5px;
-  font-weight: 600;
-  text-transform: uppercase;
+  font-weight: inherit;
+  text-transform: inherit;
   transition: all 0.3s ease;
   font-size: 1.6rem;
   font-family: inherit;
@@ -44,9 +44,9 @@
   width: 13rem;
 
   @media only screen and (max-width: $bp-phone) {
-    position: relative;
+    position: absolute;
     left: 50%;
-    top: 5%;
+    bottom: 5%;
     transform: translateX(-50%);
   }
 }
@@ -76,8 +76,6 @@
     }
     &--levels {
       border-bottom: 1px solid $header-outline;
-    }
-    &--rules {
     }
   }
 }
