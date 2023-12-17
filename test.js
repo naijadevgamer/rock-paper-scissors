@@ -28,3 +28,9 @@ function check(choices, i, randNum) {
     console.log("you lose");
   }
 }
+
+const level = "extended";
+const activeLevel =
+  level === "classic" ? ["classic", "extended"] : ["extended", "classic"];
+
+console.log(activeLevel[0]);

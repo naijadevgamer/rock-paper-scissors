@@ -132,6 +132,68 @@ const handlePlayerPick = (icons, choices) => {
   }
 };
 
+// Function to toggle option button
+const toggleOptions = () => {
+  getElement(".option").classList.toggle("hidden");
+};
+
+// Function to toggle modal container
+const toggleModalBox = () => {
+  getElement(".modal-container").classList.toggle("hidden");
+};
+
+// // Function to show levels
+// const showLevels = () => {
+//   getElement(".modal-container").classList.remove("hidden");
+//   getElement(".modal").classList.add("hidden");
+//   getElement(".modal__level-box").classList.remove("hidden");
+//   toggleOptions();
+// };
+
+// // Function to show levels
+// const showRules = () => {
+//   document.querySelector(".modal-container").classList.remove("hidden");
+//   document.querySelector(".modal").classList.remove("hidden");
+//   document.querySelector(".modal__level-box").classList.add("hidden");
+//   toggleOptions();
+// };
+
+// Function to show modal
+const showModal = (modal) => {
+  getElement(`.option__item--${modal}`).addEventListener("click", () => {
+    if (modal === "rules") {
+      getElement(".modal").classList.remove("hidden");
+      getElement(".modal__level-box").classList.add("hidden");
+    } else {
+      getElement(".modal").classList.add("hidden");
+      getElement(".modal__level-box").classList.remove("hidden");
+    }
+    toggleOptions();
+    toggleModalBox();
+  });
+};
+
+// Function to switch level
+const switchLevel = (level) => {
+  getElement(`.modal__level--${level}`).addEventListener("click", () => {
+    const levels =
+      level === "classic" ? ["classic", "extended"] : ["extended", "classic"];
+    getElement(`.modal__level--${levels[0]}`).classList.add(
+      "modal__level--active"
+    );
+    getElement(`.modal__level--${levels[1]}`).classList.remove(
+      "modal__level--active"
+    );
+
+    getElement(`.header__logo--${levels[0]}`).classList.remove("hidden");
+    getElement(`.header__logo--${levels[1]}`).classList.add("hidden");
+    getElement(`.modal__rules--${levels[0]}`).classList.remove("hidden");
+    getElement(`.modal__rules--${levels[1]}`).classList.add("hidden");
+    toggleModalBox();
+    playAgain();
+    // extendedPhase.classList.add("hidden");
+  });
+};
 // // Classic level functionality
 // for (let i = 0; i < classicIcons.length; i++) {
 //   classicIcons[i].addEventListener("click", (e) => {
@@ -245,8 +307,18 @@ const handlePlayerPick = (icons, choices) => {
 //   });
 // }
 
-// Play again functionality
-document.querySelector(".btn--again").addEventListener("click", playAgain);
+// Event Listeners
+handlePlayerPick(classicIcons, rps);
+handlePlayerPick(extendedIcons, rpsls);
+showModal("rules");
+showModal("levels");
+
+getElement(".btn--again").addEventListener("click", playAgain);
+getElement(".btn--option").addEventListener("click", toggleOptions);
+getElement(".modal__close").addEventListener("click", toggleModalBox);
+getElement(".modal-container").addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal-container")) toggleModalBox();
+});
 
 /// Show modal functionalities
 // toggle option button
