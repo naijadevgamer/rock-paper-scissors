@@ -58,6 +58,7 @@
   margin-bottom: 1rem;
   border-radius: 6px;
   overflow: hidden;
+  animation: bottomUp 0.5s ease;
 
   &__item {
     padding: 1rem;
@@ -77,5 +78,17 @@
     &--levels {
       border-bottom: 1px solid $header-outline;
     }
+  }
+}
+
+// Animation
+@keyframes bottomUp {
+  0% {
+    opacity: 0;
+    width: 0%;
+  }
+  100% {
+    opacity: 1;
+    width: 100%;
   }
 }
