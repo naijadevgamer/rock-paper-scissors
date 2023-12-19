@@ -92,3 +92,13 @@
     width: 100%;
   }
 }
+@keyframes TopDown {
+  0% {
+    opacity: 1;
+    width: 100%;
+  }
+  100% {
+    opacity: 0;
+    width: 0%;
+  }
+}
