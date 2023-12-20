@@ -555,7 +555,6 @@ body main {
   bottom: 5%;
   right: 5%;
   width: 13rem;
-  overflow: hidden;
 }
 @media only screen and (max-width: 37.5em) {
   .option-box {
@@ -591,17 +590,17 @@ body main {
 }
 
 .show {
-  animation: bottomUp 0.5s ease both;
-}
-
-.hide {
   animation: topDown 0.5s ease both;
 }
 
-@keyframes bottomUp {
+.hide {
+  animation: bottomUp 0.5s ease both;
+}
+
+@keyframes topDown {
   0% {
     display: block;
-    transform: translateY(-100%);
+    transform: translateY(-50%);
     opacity: 0;
   }
   100% {
@@ -609,13 +608,13 @@ body main {
     opacity: 1;
   }
 }
-@keyframes topDown {
+@keyframes bottomUp {
   0% {
     transform: translateY(0%);
     opacity: 1;
   }
   100% {
-    transform: translateY(-100%);
+    transform: translateY(-50%);
     opacity: 0;
     display: none;
   }

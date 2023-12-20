@@ -139,11 +139,9 @@ const toggleOptions = () => {
   if (!getElement(".option").classList.contains("show")) {
     getElement(".option").classList.add("show");
     getElement(".option").classList.remove("hide");
-    console.log("show stage");
   } else {
     getElement(".option").classList.add("hide");
     getElement(".option").classList.remove("show");
-    console.log("hide stage");
   }
 };
 
