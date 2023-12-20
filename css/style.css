@@ -555,6 +555,7 @@ body main {
   bottom: 5%;
   right: 5%;
   width: 13rem;
+  overflow: hidden;
 }
 @media only screen and (max-width: 37.5em) {
   .option-box {
@@ -572,7 +573,6 @@ body main {
   margin-bottom: 1rem;
   border-radius: 6px;
   overflow: hidden;
-  animation: bottomUp 0.5s ease;
 }
 .option__item {
   padding: 1rem;
@@ -590,24 +590,34 @@ body main {
   border-bottom: 1px solid hsl(217, 16%, 45%);
 }
 
+.show {
+  animation: bottomUp 0.5s ease both;
+}
+
+.hide {
+  animation: topDown 0.5s ease both;
+}
+
 @keyframes bottomUp {
   0% {
+    display: block;
+    transform: translateY(-100%);
     opacity: 0;
-    width: 0%;
   }
   100% {
+    transform: translateY(0%);
     opacity: 1;
-    width: 100%;
   }
 }
-@keyframes TopDown {
+@keyframes topDown {
   0% {
+    transform: translateY(0%);
     opacity: 1;
-    width: 100%;
   }
   100% {
+    transform: translateY(-100%);
     opacity: 0;
-    width: 0%;
+    display: none;
   }
 }
 .modal-container {

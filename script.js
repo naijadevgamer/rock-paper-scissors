@@ -134,7 +134,17 @@ const handlePlayerPick = (icons, choices) => {
 
 // Function to toggle option button
 const toggleOptions = () => {
-  getElement(".option").classList.toggle("hidden");
+  getElement(".option").classList.remove("hidden");
+
+  if (!getElement(".option").classList.contains("show")) {
+    getElement(".option").classList.add("show");
+    getElement(".option").classList.remove("hide");
+    console.log("show stage");
+  } else {
+    getElement(".option").classList.add("hide");
+    getElement(".option").classList.remove("show");
+    console.log("hide stage");
+  }
 };
 
 // Function to toggle modal container
