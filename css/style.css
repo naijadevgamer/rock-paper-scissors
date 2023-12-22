@@ -121,6 +121,7 @@ body main {
   top: 0;
   left: 50%;
   transform: translateX(-50%);
+  animation: scaleInPlay 0.5s ease backwards;
 }
 .phase__bg {
   height: 20rem;
@@ -232,6 +233,18 @@ body main {
   }
 }
 
+@keyframes scaleInPlay {
+  0% {
+    opacity: 0;
+    left: 45%;
+    transform: scale(0.5) translateX(-50%);
+  }
+  100% {
+    opacity: 1;
+    left: 50%;
+    transform: scale(1) translateX(-50%);
+  }
+}
 .icon {
   position: absolute;
   border-radius: 50%;
@@ -643,6 +656,7 @@ body main {
   padding: 4rem;
   border-radius: 10px;
   align-items: center;
+  animation: scaleIn 0.5s ease 0.3s backwards;
 }
 @media only screen and (max-width: 37.5em) {
   .modal {
@@ -687,6 +701,7 @@ body main {
   width: 25rem;
   border-radius: 5px;
   overflow: hidden;
+  animation: scaleIn 0.5s ease 0.3s backwards;
 }
 .modal__level {
   transition: all 0.3s ease;
@@ -702,6 +717,17 @@ body main {
 .modal__level--active {
   background-color: hsl(230, 89%, 55%);
   color: hsl(0, 0%, 100%);
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

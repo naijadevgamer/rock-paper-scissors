@@ -16,6 +16,7 @@ const playerPickIcon = getElement(".phase__pick--player .icon");
 const housePickIcon = getElement(".phase__pick--house .icon");
 const phaseStatus = getElement(".phase__status");
 const headerScore = getElement(".header__score");
+const options = getElement(".option");
 
 // Game Options
 const rps = ["rock", "paper", "scissors"];
@@ -134,14 +135,13 @@ const handlePlayerPick = (icons, choices) => {
 
 // Function to toggle option button
 const toggleOptions = () => {
-  getElement(".option").classList.remove("hidden");
-
-  if (!getElement(".option").classList.contains("show")) {
-    getElement(".option").classList.add("show");
-    getElement(".option").classList.remove("hide");
+  options.classList.remove("hidden");
+  if (!options.classList.contains("show")) {
+    options.classList.add("show");
+    options.classList.remove("hide");
   } else {
-    getElement(".option").classList.add("hide");
-    getElement(".option").classList.remove("show");
+    options.classList.add("hide");
+    options.classList.remove("show");
   }
 };
 
