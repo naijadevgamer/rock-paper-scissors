@@ -83,6 +83,22 @@ body {
   font-weight: 600;
   overflow: hidden;
   position: relative;
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    display: block;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 4px;
+    &:hover {
+      background-color: #b3b3b3;
+      box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+    }
+    &:active {
+      background-color: #999999;
+    }
+  }
   main {
     width: 100%;
   }
