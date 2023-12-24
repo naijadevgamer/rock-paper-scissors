@@ -366,6 +366,7 @@ body main {
 @media only screen and (max-width: 37.5em) {
   .icon__winner {
     transform: scale(2.1);
+    animation: scaleUpM 0.5s ease;
   }
 }
 .icon__winner span:first-child,
@@ -538,9 +539,14 @@ body main {
   }
   100% {
     transform: scale(2.5);
-    @media only screen and (max-width: 37.5em) {
-      transform: scale(2.1);
-    }
+  }
+}
+@keyframes scaleUpM {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(2.1);
   }
 }
 .btn {
