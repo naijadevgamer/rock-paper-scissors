@@ -109,6 +109,11 @@ body {
 }
 
 // Main js style
+.hide-modal {
+  visibility: hidden !important;
+  opacity: 0 !important;
+}
 .hidden {
   display: none !important;
+  opacity: 0 !important;
 }

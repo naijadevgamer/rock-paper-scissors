@@ -147,17 +147,17 @@ const toggleOptions = () => {
 
 // Function to toggle modal container
 const toggleModalBox = () => {
-  getElement(".modal-container").classList.toggle("hidden");
+  getElement(".modal-container").classList.toggle("hide-modal");
 };
 
 // Function to show modal
 const showModal = (modal) => {
   getElement(`.option__item--${modal}`).addEventListener("click", () => {
     if (modal === "rules") {
-      getElement(".modal").classList.remove("hidden");
+      getElement(".modal__rules-box").classList.remove("hidden");
       getElement(".modal__level-box").classList.add("hidden");
     } else {
-      getElement(".modal").classList.add("hidden");
+      getElement(".modal__rules-box").classList.add("hidden");
       getElement(".modal__level-box").classList.remove("hidden");
     }
     toggleOptions();
