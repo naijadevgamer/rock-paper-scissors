@@ -155,11 +155,19 @@ const showModal = (modal) => {
   getElement(`.option__item--${modal}`).addEventListener("click", () => {
     if (modal === "rules") {
       getElement(".modal__rules-box").classList.remove("hidden");
+      getElement(".modal__rules-box").style.animation =
+        "scaleIn 0.5s ease 0.3s backwards";
       getElement(".modal__level-box").classList.add("hidden");
     } else {
       getElement(".modal__rules-box").classList.add("hidden");
       getElement(".modal__level-box").classList.remove("hidden");
+      getElement(".modal__level-box").style.animation =
+        "scaleIn 0.5s ease 0.3s backwards";
     }
+    setTimeout(() => {
+      getElement(".modal__level-box").style.animation = "none";
+      getElement(".modal__rules-box").style.animation = "none";
+    }, 800);
     toggleOptions();
     toggleModalBox();
   });

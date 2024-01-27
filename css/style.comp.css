@@ -685,7 +685,6 @@ body main {
   padding: 4rem;
   border-radius: 10px;
   align-items: center;
-  animation: scaleIn 0.5s ease 0.3s backwards;
   transition: all 0.5s;
 }
 @media only screen and (max-width: 37.5em) {
@@ -732,7 +731,6 @@ body main {
   border-radius: 5px;
   overflow: hidden;
   transition: visibility 0.5s;
-  animation: scaleIn 0.5s ease 0.3s backwards;
 }
 .modal__level {
   transition: all 0.3s ease;
